@@ -3,4 +3,6 @@
 ---
 ## Issue: </br> Error 0x80073CF9 when "Run.bat" is executed to install Windows Subystem for Android (WSA)
 ### Preface:
-##### This issue can arise due to many factors such as corruption of files when downloading the .zip files or extracting from the .zip files. This can be also caused if the folder name is too long (This is th
+##### This issue can arise due to many factors such as corruption of files when downloading the .zip files or extracting from the .zip files. This can be also caused if the folder name is too long (This is the case as MagiskOnWSA tends to generate a long string for the .zip file and the folder within the archive.)
+
+<img src="https://user-images.githubuserconten
