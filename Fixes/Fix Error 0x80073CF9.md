@@ -10,4 +10,6 @@
 ---
 ## Solution
 
-**1. Ensure the partition/drive you are installing 
+**1. Ensure the partition/drive you are installing from is NTFS**
+
+**2. Redownload WSA Build .zip file from the [Releases page](https://github.com/MustardChef/WSABuilds/releases) (sometime th
