@@ -5,4 +5,9 @@
 ### Preface:
 ##### This issue can arise due to many factors such as corruption of files when downloading the .zip files or extracting from the .zip files. This can be also caused if the folder name is too long (This is the case as MagiskOnWSA tends to generate a long string for the .zip file and the folder within the archive.)
 
-<img src="https://user-images.githubuserconten
+<img src="https://user-images.githubusercontent.com/68516357/219852713-fde4520d-9fa8-4c8b-80e6-ac2adecbeae9.png" style="width: 600px;"/>  
+
+---
+## Solution
+
+**1. Ensure the partition/drive you are installing 
