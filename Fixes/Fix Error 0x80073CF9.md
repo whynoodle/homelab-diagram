@@ -14,4 +14,6 @@
 
 **2. Redownload WSA Build .zip file from the [Releases page](https://github.com/MustardChef/WSABuilds/releases) (sometime the files can be corrupted during download and extraction)**
 
-**3. Rename the .zip folder to a shorter name, which can be anything to your choosing </br> (For example: WSA_2XX
+**3. Rename the .zip folder to a shorter name, which can be anything to your choosing </br> (For example: WSA_2XXX.XXXXX.X.X_XXXX_Release-Nightly-with-magisk-XXXXXXX-XXXXXX-MindTheGapps-XX.X-RemovedAmazon ----> WSAArchive2XXX)**
+
+**4. Extract the .zip using WinRAR or a proper archive 
