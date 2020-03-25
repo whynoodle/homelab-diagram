@@ -16,4 +16,6 @@
 
 **3. Rename the .zip folder to a shorter name, which can be anything to your choosing </br> (For example: WSA_2XXX.XXXXX.X.X_XXXX_Release-Nightly-with-magisk-XXXXXXX-XXXXXX-MindTheGapps-XX.X-RemovedAmazon ----> WSAArchive2XXX)**
 
-**4. Extract the .zip using WinRAR or a proper archive 
+**4. Extract the .zip using WinRAR or a proper archive tool and not the built in Windows .zip extractor** 
+
+**5. Rename the extracted folder to a shorter name, which can be anything to your choosing </br> (For ex
