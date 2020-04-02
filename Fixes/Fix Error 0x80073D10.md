@@ -5,4 +5,10 @@
 ### Preface:
 ##### This issue is caused when your are trying to install the incorrect WSA package for your CPU Archetecture. For example, you are mistakenly trying to install the arm64 package on your x64 system. 
 
-<img src="https://user-images.githubusercontent.com/68516357/222832801-66c0b96a-363d-4f6e-a6
+<img src="https://user-images.githubusercontent.com/68516357/222832801-66c0b96a-363d-4f6e-a654-6bfb618c32e2.png" style="width: 500px;"/>  
+
+---
+
+## Solution
+
+**1. To ensure that you download the correct package for your CPU archtecture, go to the [Downloa
