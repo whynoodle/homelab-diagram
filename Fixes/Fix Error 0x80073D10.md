@@ -11,4 +11,8 @@
 
 ## Solution
 
-**1. To ensure that you download the correct package for your CPU archtecture, go to the [Downloa
+**1. To ensure that you download the correct package for your CPU archtecture, go to the [Downloads Section](https://github.com/MustardChef/WSABuilds#downloads) in the Readme.md**
+
+**2. Click on the badge/button matching your Operating System (OS) and CPU Archetecture**
+
+**3. Downloa
