@@ -1,1 +1,7 @@
-# WSABuilds &nbsp; &nbsp; <img 
+# WSABuilds &nbsp; &nbsp; <img src="https://img.shields.io/github/downloads/MustardChef/WSABuilds/total?label=Total%20Downloads&style=for-the-badge"/> &nbsp; 
+
+&nbsp;
+&nbsp;
+
+<details>     
+   <summary><h2>Issue:<h2><h
