@@ -12,4 +12,9 @@
 
 
 <img src="https://media.discordapp.net/attachments/1044322950725259274/1068243571544690719/9Qf3veK.png" />
-<
+<img src="https://user-images.githubusercontent.com/68516357/215262023-89e0e0fa-3dd7-4d6d-b93a-224169f61971.png" />
+ 
+</details>
+
+<details>     
+   <summary><h2>Solution<h2></
