@@ -17,4 +17,8 @@
 </details>
 
 <details>     
-   <summary><h2>Solution<h2></
+   <summary><h2>Solution<h2></summary>
+
+&nbsp;
+    
+If the popup windows disappear without asking administrative permission and Windows Subsystem For Android™ is not installed successfully, you sho
