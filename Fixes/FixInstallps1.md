@@ -21,4 +21,8 @@
 
 &nbsp;
     
-If the popup windows disappear without asking administrative permission and Windows Subsystem For Android™ is not installed successfully, you sho
+If the popup windows disappear without asking administrative permission and Windows Subsystem For Android™ is not installed successfully, you should manually run Install.ps1 as administrator:
+
+&nbsp;  
+
+### **1. Press Win + X on your keyboard and select Windows™ Terminal (Admin) or Powershell (Admin) depending on the versi
