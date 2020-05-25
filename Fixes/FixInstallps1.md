@@ -29,4 +29,5 @@ If the popup windows disappear without asking administrative permission and Wind
 
 |||
 |--------|------|
-|<img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Windows_11_logo.svg" 
+|<img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Windows_11_logo.svg" style="width: 200px;"/> |<img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Windows_10_Logo.svg" style="width: 200px;"/> |
+|![215262254-7466d964-3956-4d
