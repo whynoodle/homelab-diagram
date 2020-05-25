@@ -25,4 +25,8 @@ If the popup windows disappear without asking administrative permission and Wind
 
 &nbsp;  
 
-### **1. Press Win + X on your keyboard and select Windows™ Terminal (Admin) or Powershell (Admin) depending on the versi
+### **1. Press Win + X on your keyboard and select Windows™ Terminal (Admin) or Powershell (Admin) depending on the version of Windows™ you are running**
+
+|||
+|--------|------|
+|<img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Windows_11_logo.svg" 
