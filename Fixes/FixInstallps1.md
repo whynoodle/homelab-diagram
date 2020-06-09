@@ -45,4 +45,6 @@ If the popup windows disappear without asking administrative permission and Wind
   PowerShell.exe -ExecutionPolicy Bypass -File .\Install.ps1
 ```
 &nbsp;  
-### **4. The script will run and Windo
+### **4. The script will run and Windows Subsystem For Android™ will be installed**
+
+</details>  
