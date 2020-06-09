@@ -39,4 +39,10 @@ If the popup windows disappear without asking administrative permission and Wind
   cd "{X:\path\to\your\extracted\folder}"
 ```
 &nbsp; 
-### **3.
+### **3. Input the command below and press enter** 
+    
+```Powershell
+  PowerShell.exe -ExecutionPolicy Bypass -File .\Install.ps1
+```
+&nbsp;  
+### **4. The script will run and Windo
