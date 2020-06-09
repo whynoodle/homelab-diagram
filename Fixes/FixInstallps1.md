@@ -33,4 +33,10 @@ If the popup windows disappear without asking administrative permission and Wind
 |![215262254-7466d964-3956-4d71-8014-e2c5869ca4d4](https://user-images.githubusercontent.com/68516357/215263173-500591dd-c6d5-4c2d-9d38-58bc065fff28.png)|![winx_editor-1](https://user-images.githubusercontent.com/68516357/215263348-022dc031-802f-4e93-8999-05d0aa6744b9.png)|
 
 &nbsp;    
-### **2. Input the command below and press enter, replacing {X:\path\t
+### **2. Input the command below and press enter, replacing {X:\path\to\your\extracted\folder} including the {} with the path of the extracted folder**
+    
+```Powershell
+  cd "{X:\path\to\your\extracted\folder}"
+```
+&nbsp; 
+### **3.
