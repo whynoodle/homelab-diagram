@@ -12,4 +12,4 @@
 
 The solution is simple, all you have to do is:
 
-**1. Rename the .zi
+**1. Rename the .zip folder to a shorter name, which can be anything to your choosing </br> (For example: WSA_2XXX.XXXXX.X.X_XXXX_Release-Nightly-with-magisk-XXXXXXX-XXXX
