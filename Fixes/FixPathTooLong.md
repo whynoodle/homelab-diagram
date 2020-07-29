@@ -22,4 +22,7 @@ The solution is simple, all you have to do is:
 
 Join the Discord if you have any other questions or need help!
 
-[<img src="https://invidget.switchblade.xyz/2thee7zzHZ" style="width: 
+[<img src="https://invidget.switchblade.xyz/2thee7zzHZ" style="width: 400px;"/>](https://discord.gg/2thee7zzHZ)
+
+
+
