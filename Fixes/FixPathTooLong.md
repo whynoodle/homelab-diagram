@@ -18,4 +18,8 @@ The solution is simple, all you have to do is:
 
 ---
 
-### H
+### Have futher question or need help?
+
+Join the Discord if you have any other questions or need help!
+
+[<img src="https://invidget.switchblade.xyz/2thee7zzHZ" style="width: 
