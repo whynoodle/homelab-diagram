@@ -5,4 +5,8 @@
 
 1. Open up Windows Subsystem For Android™ Settings --> Either by going to the Start Menu and searching for it or by using the Search feature
 
-![image](https://user-images.githubusercontent.com/68516357/213872047-eced6893-ea32-4de9-8ebb-ca
+![image](https://user-images.githubusercontent.com/68516357/213872047-eced6893-ea32-4de9-8ebb-ca35fc568f12.png)
+
+2. Make sure to turn off Windows Subsystem For Android™ by pressing ``Turn off`` in the ``Turn off Windows Subsystem For Android™`` tab
+
+![image](https://user-image
