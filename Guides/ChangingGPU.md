@@ -9,4 +9,9 @@
 
 2. Make sure to turn off Windows Subsystem For Android™ by pressing ``Turn off`` in the ``Turn off Windows Subsystem For Android™`` tab
 
-![image](https://user-image
+![image](https://user-images.githubusercontent.com/68516357/213872914-1eae7f97-9571-4ffc-b280-86075dd3431b.png)
+
+
+3. In Windows Subsystem For Android™ Settings select the ``Graphics and Performance`` Tab 
+
+![image]
