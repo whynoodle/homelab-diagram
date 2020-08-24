@@ -16,4 +16,8 @@
 
 ![image](https://user-images.githubusercontent.com/68516357/213872285-93e7de54-9e5f-430c-a7fd-4c6d304cea64.png)
 
-4.  Click on the selection for ``GPU used for apps for Android™`` and select t
+4.  Click on the selection for ``GPU used for apps for Android™`` and select the GPU that you would like Windows Subsystem For Android™ to use.
+
+![image](https://user-images.githubusercontent.com/68516357/213872473-e70814dd-6fc2-4afd-bcd2-fcb421518eba.png)
+
+
