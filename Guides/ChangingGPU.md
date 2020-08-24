@@ -14,4 +14,6 @@
 
 3. In Windows Subsystem For Android™ Settings select the ``Graphics and Performance`` Tab 
 
-![image]
+![image](https://user-images.githubusercontent.com/68516357/213872285-93e7de54-9e5f-430c-a7fd-4c6d304cea64.png)
+
+4.  Click on the selection for ``GPU used for apps for Android™`` and select t
