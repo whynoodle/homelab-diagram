@@ -9,4 +9,6 @@
 ### Prerequisites:
 - The partition/ disk that you want to move/install Windows Subsystem For Android™ to, ****MUST**** be **NTFS**
 - Recommended that both disks, C:/ and the disk/partition that you want to install (move) WSA on (to), are SSDs 
-    - HDDs may work, but
+    - HDDs may work, but performance issues may arise
+- Basic knowledge on Command Prompt (CMD) usage
+- There must be enough space on the disk/partiton that you are installing/moving WSA to (recommended 20GB, as th
