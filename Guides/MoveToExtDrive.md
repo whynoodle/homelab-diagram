@@ -11,4 +11,8 @@
 - Recommended that both disks, C:/ and the disk/partition that you want to install (move) WSA on (to), are SSDs 
     - HDDs may work, but performance issues may arise
 - Basic knowledge on Command Prompt (CMD) usage
-- There must be enough space on the disk/partiton that you are installing/moving WSA to (recommended 20GB, as th
+- There must be enough space on the disk/partiton that you are installing/moving WSA to (recommended 20GB, as the VHDX can become very large in size)
+
+> **Note** 
+> 
+> If you want to preseve your data, make a backup of the `%LOCALAPPDATA%\Packages\MicrosoftCorporationII.Window
