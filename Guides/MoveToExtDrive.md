@@ -22,4 +22,7 @@
 
 
 - ### Step 1: Remove all previous installations from WSABuilds or official WSA Releases
-    - To r
+    - To remove WSA installed through WSABuild:
+
+        - **1.)** Make sure that Windows Subsystem For Android™ is not running
+        - **2.)** Search for ``Windows Subsystem For
