@@ -25,4 +25,5 @@
     - To remove WSA installed through WSABuild:
 
         - **1.)** Make sure that Windows Subsystem For Android™ is not running
-        - **2.)** Search for ``Windows Subsystem For
+        - **2.)** Search for ``Windows Subsystem For Android™ Settings`` using the built-in Windows Search, or through Add and Remove Programs and press uninstall
+        - **3.)** Delete the WSA folder that you extract
