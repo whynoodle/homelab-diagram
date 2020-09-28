@@ -37,4 +37,5 @@
 
 
 - ### Step 2: Install WSA from the desired partition 
-    - **1.)** Download the lat
+    - **1.)** Download the latest WSA Build according to Windows Version and CPU Archtecture from [Downloads](https://github.com/MustardChef/WSABuilds#downloads)
+    - **2.)** Extract to the desired par
