@@ -40,4 +40,7 @@
     - **1.)** Download the latest WSA Build according to Windows Version and CPU Archtecture from [Downloads](https://github.com/MustardChef/WSABuilds#downloads)
     - **2.)** Extract to the desired partition or drive
     -  Using the same process as detailed in [Installation](https://github.com/MustardChef/WSABuilds/edit/master/README.md#--installation)
-    - **
+    - **3.)** Open the extracted folder and run ``Run.bat``
+ 
+
+- ### Step 3: Moving the AppData (VHDX + data) from your Windows drive (C:\) to the desired partition/
