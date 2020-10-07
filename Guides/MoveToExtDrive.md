@@ -43,4 +43,5 @@
     - **3.)** Open the extracted folder and run ``Run.bat``
  
 
-- ### Step 3: Moving the AppData (VHDX + data) from your Windows drive (C:\) to the desired partition/
+- ### Step 3: Moving the AppData (VHDX + data) from your Windows drive (C:\) to the desired partition/drive
+     - **1.)** Go to ``%LOCALAPPDATA%\Packages\`` and copy the folder named ``MicrosoftCorporationII.WindowsSubsystemForAndroid_8wekyb3d8bbwe`` to the desired d
