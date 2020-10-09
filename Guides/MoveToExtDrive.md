@@ -44,4 +44,6 @@
  
 
 - ### Step 3: Moving the AppData (VHDX + data) from your Windows drive (C:\) to the desired partition/drive
-     - **1.)** Go to ``%LOCALAPPDATA%\Packages\`` and copy the folder named ``MicrosoftCorporationII.WindowsSubsystemForAndroid_8wekyb3d8bbwe`` to the desired d
+     - **1.)** Go to ``%LOCALAPPDATA%\Packages\`` and copy the folder named ``MicrosoftCorporationII.WindowsSubsystemForAndroid_8wekyb3d8bbwe`` to the desired drive/partition, making sure to delete the folder from ``%LOCALAPPDATA%\Packages\`` after copying
+     
+     - **2.)** Open Command Prompt (Admin) through Windows Terminal (Adm
