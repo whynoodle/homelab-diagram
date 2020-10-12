@@ -48,4 +48,6 @@
      
      - **2.)** Open Command Prompt (Admin) through Windows Terminal (Admin) or directly and run the command:
 ```shell
-mklink /J "%LOCALAPPDATA%\Packages\MicrosoftCorporationII.WindowsSubsystemForAndroid_8wekyb3d8bbwe" "Location_Of_Folder_In_Other
+mklink /J "%LOCALAPPDATA%\Packages\MicrosoftCorporationII.WindowsSubsystemForAndroid_8wekyb3d8bbwe" "Location_Of_Folder_In_Other_Drive"
+```
+Replacing Location_Of_Folder_In_Other_Drive with the location of the folder named ``MicrosoftCorporationII.WindowsSubsystemForAndroid_8wekyb3d8b
