@@ -50,4 +50,7 @@
 ```shell
 mklink /J "%LOCALAPPDATA%\Packages\MicrosoftCorporationII.WindowsSubsystemForAndroid_8wekyb3d8bbwe" "Location_Of_Folder_In_Other_Drive"
 ```
-Replacing Location_Of_Folder_In_Other_Drive with the location of the folder named ``MicrosoftCorporationII.WindowsSubsystemForAndroid_8wekyb3d8b
+Replacing Location_Of_Folder_In_Other_Drive with the location of the folder named ``MicrosoftCorporationII.WindowsSubsystemForAndroid_8wekyb3d8bbwe``, copied to the desired to the drive/partition in 1st point of Step 3
+
+- ### Step 4: Testing if everything is working
+    - Run Windows
