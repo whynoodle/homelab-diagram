@@ -53,4 +53,8 @@ mklink /J "%LOCALAPPDATA%\Packages\MicrosoftCorporationII.WindowsSubsystemForAnd
 Replacing Location_Of_Folder_In_Other_Drive with the location of the folder named ``MicrosoftCorporationII.WindowsSubsystemForAndroid_8wekyb3d8bbwe``, copied to the desired to the drive/partition in 1st point of Step 3
 
 - ### Step 4: Testing if everything is working
-    - Run Windows
+    - Run Windows Subsystem For Android™ Settings
+        - If it crashes, you have made a mistake whilst following the guide. Try following it again. 
+    
+    
+### If you find yours
