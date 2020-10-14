@@ -57,4 +57,5 @@ Replacing Location_Of_Folder_In_Other_Drive with the location of the folder name
         - If it crashes, you have made a mistake whilst following the guide. Try following it again. 
     
     
-### If you find yours
+### If you find yourself stuck, or do not understand any steps in the guide, Join the Discord and ask here:
+[<img src="https://invidget.switchblade.xyz/2thee7zzHZ" style="width: 400px;"/>](http
