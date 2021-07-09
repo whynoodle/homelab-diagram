@@ -183,3 +183,200 @@ Usage:
                         RP means Release Preview, WIS means Insider Slow, WIF means Insider Fast.
 
                         Possible values: $(ARR_TO_STR "${RELEASE_TYPE_MAP[@]}")
+                        Default: $RELEASE_TYPE
+
+    --magisk-ver        Magisk version.
+
+                        Possible values: $(ARR_TO_STR "${MAGISK_VER_MAP[@]}")
+                        Default: $MAGISK_VER
+
+    --gapps-brand       GApps brand.
+                        \"none\" for no integration of GApps
+
+                        Possible values: $(ARR_TO_STR "${GAPPS_BRAND_MAP[@]}")
+                        Default: $GAPPS_BRAND
+
+    --gapps-variant     GApps variant.
+
+                        Possible values: $(ARR_TO_STR "${GAPPS_VARIANT_MAP[@]}")
+                        Default: $GAPPS_VARIANT
+
+    --root-sol          Root solution.
+                        \"none\" means no root.
+
+                        Possible values: $(ARR_TO_STR "${ROOT_SOL_MAP[@]}")
+                        Default: $ROOT_SOL
+
+    --compress-format
+                        Compress format of output file.
+                        If this option is not specified and --compress is not specified, the generated file will not be compressed
+
+                        Possible values: $(ARR_TO_STR "${COMPRESS_FORMAT_MAP[@]}")
+
+Additional Options:
+    --remove-amazon     Remove Amazon Appstore from the system
+    --compress          Compress the WSA, The default format is 7z, you can use the format specified by --compress-format
+    --offline           Build WSA offline
+    --magisk-custom     Install custom Magisk
+    --skip-download-wsa Skip download WSA
+    --debug             Debug build mode
+    --help              Show this help message and exit
+    --nofix-props       No fix \"build.prop\"
+                        $GAPPS_PROPS_MSG1
+                        $GAPPS_PROPS_MSG2
+                        $GAPPS_PROPS_MSG3
+
+Example:
+    ./build.sh --release-type RP --magisk-ver beta --gapps-variant pico --remove-amazon
+    ./build.sh --arch arm64 --release-type WIF --gapps-brand OpenGApps --nofix-props
+    ./build.sh --release-type WIS --gapps-brand none
+    ./build.sh --offline --gapps-variant pico --magisk-custom
+    "
+}
+
+ARGUMENT_LIST=(
+    "arch:"
+    "release-type:"
+    "magisk-ver:"
+    "gapps-brand:"
+    "gapps-variant:"
+    "nofix-props"
+    "root-sol:"
+    "compress-format:"
+    "remove-amazon"
+    "compress"
+    "offline"
+    "magisk-custom"
+    "debug"
+    "help"
+    "skip-download-wsa"
+)
+
+default
+
+opts=$(
+    getopt \
+        --longoptions "$(printf "%s," "${ARGUMENT_LIST[@]}")" \
+        --name "$(basename "$0")" \
+        --options "" \
+        -- "$@"
+) || exit_with_message "Failed to parse options, please check your input"
+
+eval set --"$opts"
+while [[ $# -gt 0 ]]; do
+   case "$1" in
+        --arch              ) ARCH="$2"; shift 2 ;;
+        --release-type      ) RELEASE_TYPE="$2"; shift 2 ;;
+        --gapps-brand       ) GAPPS_BRAND="$2"; shift 2 ;;
+        --gapps-variant     ) GAPPS_VARIANT="$2"; shift 2 ;;
+        --nofix-props       ) NOFIX_PROPS="yes"; shift ;;
+        --root-sol          ) ROOT_SOL="$2"; shift 2 ;;
+        --compress-format   ) COMPRESS_FORMAT="$2"; shift 2 ;;
+        --remove-amazon     ) REMOVE_AMAZON="yes"; shift ;;
+        --compress          ) COMPRESS_OUTPUT="yes"; shift ;;
+        --offline           ) OFFLINE="on"; shift ;;
+        --magisk-custom     ) CUSTOM_MAGISK="debug"; shift ;;
+        --magisk-ver        ) MAGISK_VER="$2"; shift 2 ;;
+        --debug             ) DEBUG="on"; shift ;;
+        --skip-download-wsa ) DOWN_WSA="no"; shift ;;
+        --help              ) usage; exit 0 ;;
+        --                  ) shift; break;;
+   esac
+done
+
+if [ "$CUSTOM_MAGISK" ]; then
+    if [ -z "$MAGISK_VER" ]; then
+        MAGISK_VER=$CUSTOM_MAGISK
+    fi
+fi
+
+check_list() {
+    local input=$1
+    if [ -n "$input" ]; then
+        local name=$2
+        shift
+        local arr=("$@")
+        local list_count=${#arr[@]}
+        for i in "${arr[@]}"; do
+            if [ "$input" == "$i" ]; then
+                echo "INFO: $name: $input"
+                break
+            fi
+            ((list_count--))
+            if (("$list_count" <= 0)); then
+                exit_with_message "Invalid $name: $input"
+            fi
+        done
+    fi
+}
+
+check_list "$ARCH" "Architecture" "${ARCH_MAP[@]}"
+check_list "$RELEASE_TYPE" "Release Type" "${RELEASE_TYPE_MAP[@]}"
+check_list "$MAGISK_VER" "Magisk Version" "${MAGISK_VER_MAP[@]}"
+check_list "$GAPPS_BRAND" "GApps Brand" "${GAPPS_BRAND_MAP[@]}"
+check_list "$GAPPS_VARIANT" "GApps Variant" "${GAPPS_VARIANT_MAP[@]}"
+check_list "$ROOT_SOL" "Root Solution" "${ROOT_SOL_MAP[@]}"
+check_list "$COMPRESS_FORMAT" "Compress Format" "${COMPRESS_FORMAT_MAP[@]}"
+
+if [ "$DEBUG" ]; then
+    set -x
+fi
+
+require_su() {
+    if test "$(whoami)" != "root"; then
+        if [ -z "$SUDO" ] || [ "$($SUDO whoami)" != "root" ]; then
+            echo "ROOT/SUDO is required to run this script"
+            abort
+        fi
+    fi
+}
+
+declare -A RELEASE_NAME_MAP=(["retail"]="Retail" ["RP"]="Release Preview" ["WIS"]="Insider Slow" ["WIF"]="Insider Fast")
+declare -A ANDROID_API_MAP=(["30"]="11.0" ["32"]="12.1" ["33"]="13.0")
+RELEASE_NAME=${RELEASE_NAME_MAP[$RELEASE_TYPE]} || abort
+
+echo -e "Build: RELEASE_TYPE=$RELEASE_NAME"
+
+WSA_ZIP_PATH=$DOWNLOAD_DIR/wsa-$RELEASE_TYPE.zip
+vclibs_PATH=$DOWNLOAD_DIR/Microsoft.VCLibs."$ARCH".14.00.Desktop.appx
+xaml_PATH=$DOWNLOAD_DIR/Microsoft.UI.Xaml_"$ARCH".appx
+MAGISK_ZIP=magisk-$MAGISK_VER.zip
+MAGISK_PATH=$DOWNLOAD_DIR/$MAGISK_ZIP
+if [ "$CUSTOM_MAGISK" ]; then
+    if [ ! -f "$MAGISK_PATH" ]; then
+        echo "Custom Magisk $MAGISK_ZIP not found"
+        MAGISK_ZIP=app-$MAGISK_VER.apk
+        echo "Fallback to $MAGISK_ZIP"
+        MAGISK_PATH=$DOWNLOAD_DIR/$MAGISK_ZIP
+        if [ ! -f "$MAGISK_PATH" ]; then
+            echo -e "Custom Magisk $MAGISK_ZIP not found\nPlease put custom Magisk in $DOWNLOAD_DIR"
+            abort
+        fi
+    fi
+fi
+ANDROID_API=32
+update_gapps_zip_name() {
+    if [ "$GAPPS_BRAND" = "OpenGApps" ]; then
+        # TODO: keep it 11.0 since official opengapps does not support 12+ yet
+        # As soon as opengapps is available for 12+, we need to get the sdk/release from build.prop and download the corresponding version
+        ANDROID_API=30
+        GAPPS_ZIP_NAME="$GAPPS_BRAND-$ARCH-${ANDROID_API_MAP[$ANDROID_API]}-$GAPPS_VARIANT".zip
+    else
+        GAPPS_ZIP_NAME="$GAPPS_BRAND-$ARCH-${ANDROID_API_MAP[$ANDROID_API]}".zip
+    fi
+    GAPPS_PATH=$DOWNLOAD_DIR/$GAPPS_ZIP_NAME
+}
+update_gapps_zip_name
+if [ -z "${OFFLINE+x}" ]; then
+    trap 'rm -f -- "${DOWNLOAD_DIR:?}/${DOWNLOAD_CONF_NAME}"' EXIT
+    require_su
+    if [ "${DOWN_WSA}" != "no" ]; then
+        echo "Generate Download Links"
+        python3 generateWSALinks.py "$ARCH" "$RELEASE_TYPE" "$DOWNLOAD_DIR" "$DOWNLOAD_CONF_NAME" || abort
+        # shellcheck disable=SC1091
+        source "${WORK_DIR:?}/ENV" || abort
+    else
+        DOWN_WSA_MAIN_VERSION=2211
+    fi
+    if [[ "$DOWN_WSA_MAIN_VERSION" -ge 2211 ]]; then
+        ANDROID_API=33
