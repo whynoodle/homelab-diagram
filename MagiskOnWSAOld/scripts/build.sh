@@ -555,3 +555,187 @@ if [ "$ROOT_SOL" = 'magisk' ] || [ "$ROOT_SOL" = '' ]; then
     $SUDO chmod 0700 "$MOUNT_DIR"/sbin
     $SUDO cp "$WORK_DIR"/magisk/magisk/* "$MOUNT_DIR"/sbin/
     $SUDO cp "$MAGISK_PATH" "$MOUNT_DIR"/sbin/magisk.apk
+    $SUDO tee -a "$MOUNT_DIR"/sbin/loadpolicy.sh <<EOF
+#!/system/bin/sh
+mkdir -p /data/adb/magisk
+cp /sbin/* /data/adb/magisk/
+sync
+chmod -R 755 /data/adb/magisk
+restorecon -R /data/adb/magisk
+for module in \$(ls /data/adb/modules); do
+    if ! [ -f "/data/adb/modules/\$module/disable" ] && [ -f "/data/adb/modules/\$module/sepolicy.rule" ]; then
+        /sbin/magiskpolicy --live --apply "/data/adb/modules/\$module/sepolicy.rule"
+    fi
+done
+EOF
+
+    $SUDO find "$MOUNT_DIR"/sbin -type f -exec chmod 0755 {} \;
+    $SUDO find "$MOUNT_DIR"/sbin -type f -exec chown root:root {} \;
+    $SUDO find "$MOUNT_DIR"/sbin -type f -exec setfattr -n security.selinux -v "u:object_r:system_file:s0" {} \; || abort
+
+    TMP_PATH=$(Gen_Rand_Str 8)
+    echo "/dev/$TMP_PATH(/.*)?    u:object_r:magisk_file:s0" | $SUDO tee -a "$MOUNT_DIR"/vendor/etc/selinux/vendor_file_contexts
+    echo '/data/adb/magisk(/.*)?   u:object_r:magisk_file:s0' | $SUDO tee -a "$MOUNT_DIR"/vendor/etc/selinux/vendor_file_contexts
+    $SUDO "$WORK_DIR"/magisk/magiskpolicy --load "$MOUNT_DIR"/vendor/etc/selinux/precompiled_sepolicy --save "$MOUNT_DIR"/vendor/etc/selinux/precompiled_sepolicy --magisk "allow * magisk_file lnk_file *" || abort
+    SERVER_NAME1=$(Gen_Rand_Str 12)
+    SERVER_NAME2=$(Gen_Rand_Str 12)
+    SERVER_NAME3=$(Gen_Rand_Str 12)
+    SERVER_NAME4=$(Gen_Rand_Str 12)
+    $SUDO tee -a "$MOUNT_DIR"/system/etc/init/hw/init.rc <<EOF
+on post-fs-data
+    start adbd
+    mkdir /dev/$TMP_PATH
+    mount tmpfs tmpfs /dev/$TMP_PATH mode=0755
+    copy /sbin/magisk64 /dev/$TMP_PATH/magisk64
+    chmod 0755 /dev/$TMP_PATH/magisk64
+    symlink ./magisk64 /dev/$TMP_PATH/magisk
+    symlink ./magisk64 /dev/$TMP_PATH/su
+    symlink ./magisk64 /dev/$TMP_PATH/resetprop
+    copy /sbin/magisk32 /dev/$TMP_PATH/magisk32
+    chmod 0755 /dev/$TMP_PATH/magisk32
+    copy /sbin/magiskinit /dev/$TMP_PATH/magiskinit
+    chmod 0755 /dev/$TMP_PATH/magiskinit
+    copy /sbin/magiskpolicy /dev/$TMP_PATH/magiskpolicy
+    chmod 0755 /dev/$TMP_PATH/magiskpolicy
+    mkdir /dev/$TMP_PATH/.magisk 700
+    mkdir /dev/$TMP_PATH/.magisk/mirror 700
+    mkdir /dev/$TMP_PATH/.magisk/block 700
+    copy /sbin/magisk.apk /dev/$TMP_PATH/stub.apk
+    chmod 0644 /dev/$TMP_PATH/stub.apk
+    rm /dev/.magisk_unblock
+    exec_start $SERVER_NAME1
+    start $SERVER_NAME2
+    wait /dev/.magisk_unblock 40
+    rm /dev/.magisk_unblock
+
+service $SERVER_NAME1 /system/bin/sh /sbin/loadpolicy.sh
+    user root
+    seclabel u:r:magisk:s0
+    oneshot
+
+service $SERVER_NAME2 /dev/$TMP_PATH/magisk --post-fs-data
+    user root
+    seclabel u:r:magisk:s0
+    oneshot
+
+service $SERVER_NAME3 /dev/$TMP_PATH/magisk --service
+    class late_start
+    user root
+    seclabel u:r:magisk:s0
+    oneshot
+
+on property:sys.boot_completed=1
+    mkdir /data/adb/magisk 755
+    copy /sbin/magisk.apk /data/adb/magisk/magisk.apk
+    start $SERVER_NAME4
+
+service $SERVER_NAME4 /dev/$TMP_PATH/magisk --boot-complete
+    user root
+    seclabel u:r:magisk:s0
+    oneshot
+EOF
+    echo -e "Integrate Magisk done\n"
+fi
+
+echo "Merge Language Resources"
+cp "$WORK_DIR"/wsa/"$ARCH"/resources.pri "$WORK_DIR"/wsa/pri/en-us.pri \
+&& cp "$WORK_DIR"/wsa/"$ARCH"/AppxManifest.xml "$WORK_DIR"/wsa/xml/en-us.xml && {
+    tee "$WORK_DIR"/wsa/priconfig.xml <<EOF
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resources targetOsVersion="10.0.0" majorVersion="1">
+<index root="\" startIndexAt="\">
+    <indexer-config type="folder" foldernameAsQualifier="true" filenameAsQualifier="true" qualifierDelimiter="."/>
+    <indexer-config type="PRI"/>
+</index>
+</resources>
+EOF
+    wine64 ../wine/"$HOST_ARCH"/makepri.exe new /pr "$WORK_DIR"/wsa/pri /in MicrosoftCorporationII.WindowsSubsystemForAndroid /cf "$WORK_DIR"/wsa/priconfig.xml /of "$WORK_DIR"/wsa/"$ARCH"/resources.pri /o
+    sed -i -zE "s/<Resources.*Resources>/<Resources>\n$(cat "$WORK_DIR"/wsa/xml/* | grep -Po '<Resource [^>]*/>' | sed ':a;N;$!ba;s/\n/\\n/g' | sed 's/\$/\\$/g' | sed 's/\//\\\//g')\n<\/Resources>/g" "$WORK_DIR"/wsa/"$ARCH"/AppxManifest.xml
+    echo -e "Merge Language Resources done\n"
+} || echo -e "Merge Language Resources failed\n"
+
+echo "Add extra packages"
+$SUDO cp -r ../"$ARCH"/system/* "$MOUNT_DIR" || abort
+find ../"$ARCH"/system/system/priv-app/ -maxdepth 1 -mindepth 1 -printf '%P\n' | xargs -I placeholder $SUDO find "$MOUNT_DIR"/system/priv-app/placeholder -type d -exec chmod 0755 {} \;
+find ../"$ARCH"/system/system/priv-app/ -maxdepth 1 -mindepth 1 -printf '%P\n' | xargs -I placeholder $SUDO find "$MOUNT_DIR"/system/priv-app/placeholder -type f -exec chmod 0644 {} \;
+find ../"$ARCH"/system/system/priv-app/ -maxdepth 1 -mindepth 1 -printf '%P\n' | xargs -I placeholder $SUDO find "$MOUNT_DIR"/system/priv-app/placeholder -exec chown root:root {} \;
+find ../"$ARCH"/system/system/priv-app/ -maxdepth 1 -mindepth 1 -printf '%P\n' | xargs -I placeholder $SUDO find "$MOUNT_DIR"/system/priv-app/placeholder -exec setfattr -n security.selinux -v "u:object_r:system_file:s0" {} \; || abort
+echo -e "Add extra packages done\n"
+
+if [ "$GAPPS_BRAND" != 'none' ]; then
+    echo "Integrate $GAPPS_BRAND"
+
+    find "$WORK_DIR/gapps/" -mindepth 1 -type d -exec $SUDO chmod 0755 {} \;
+    find "$WORK_DIR/gapps/" -mindepth 1 -type d -exec $SUDO chown root:root {} \;
+    file_list="$(find "$WORK_DIR/gapps/" -mindepth 1 -type f | cut -d/ -f5-)"
+    for file in $file_list; do
+        $SUDO chown root:root "$WORK_DIR/gapps/${file}"
+        $SUDO chmod 0644 "$WORK_DIR/gapps/${file}"
+    done
+
+    if [ "$GAPPS_BRAND" = "OpenGApps" ]; then
+        find "$WORK_DIR"/gapps/ -maxdepth 1 -mindepth 1 -type d -not -path '*product' -exec $SUDO cp --preserve=all -r {} "$MOUNT_DIR"/system \; || abort
+    elif [ "$GAPPS_BRAND" = "MindTheGapps" ]; then
+        $SUDO cp --preserve=all -r "$WORK_DIR"/gapps/system_ext/* "$MOUNT_DIR"/system_ext/ || abort
+        if [ -e "$MOUNT_DIR"/system_ext/priv-app/SetupWizard ]; then
+            rm -rf "${MOUNT_DIR:?}/system_ext/priv-app/Provision"
+        fi
+    fi
+    $SUDO cp --preserve=all -r "$WORK_DIR"/gapps/product/* "$MOUNT_DIR"/product || abort
+
+    find "$WORK_DIR"/gapps/product/overlay -maxdepth 1 -mindepth 1 -printf '%P\n' | xargs -I placeholder $SUDO find "$MOUNT_DIR"/product/overlay/placeholder -type f -exec setfattr -n security.selinux -v "u:object_r:vendor_overlay_file:s0" {} \; || abort
+
+    if [ "$GAPPS_BRAND" = "OpenGApps" ]; then
+        find "$WORK_DIR"/gapps/app/ -maxdepth 1 -mindepth 1 -printf '%P\n' | xargs -I placeholder $SUDO find "$MOUNT_DIR"/system/app/placeholder -type d -exec setfattr -n security.selinux -v "u:object_r:system_file:s0" {} \; || abort
+        find "$WORK_DIR"/gapps/framework/ -maxdepth 1 -mindepth 1 -printf '%P\n' | xargs -I placeholder $SUDO find "$MOUNT_DIR"/system/framework/placeholder -type d -exec setfattr -n security.selinux -v "u:object_r:system_file:s0" {} \; || abort
+        find "$WORK_DIR"/gapps/priv-app/ -maxdepth 1 -mindepth 1 -printf '%P\n' | xargs -I placeholder $SUDO find "$MOUNT_DIR"/system/priv-app/placeholder -type d -exec setfattr -n security.selinux -v "u:object_r:system_file:s0" {} \; || abort
+        find "$WORK_DIR"/gapps/app/ -maxdepth 1 -mindepth 1 -printf '%P\n' | xargs -I placeholder $SUDO find "$MOUNT_DIR"/system/app/placeholder -type f -exec setfattr -n security.selinux -v "u:object_r:system_file:s0" {} \; || abort
+        find "$WORK_DIR"/gapps/framework/ -maxdepth 1 -mindepth 1 -printf '%P\n' | xargs -I placeholder $SUDO find "$MOUNT_DIR"/system/framework/placeholder -type f -exec setfattr -n security.selinux -v "u:object_r:system_file:s0" {} \; || abort
+        find "$WORK_DIR"/gapps/priv-app/ -maxdepth 1 -mindepth 1 -printf '%P\n' | xargs -I placeholder $SUDO find "$MOUNT_DIR"/system/priv-app/placeholder -type f -exec setfattr -n security.selinux -v "u:object_r:system_file:s0" {} \; || abort
+        find "$WORK_DIR"/gapps/etc/ -maxdepth 1 -mindepth 1 -printf '%P\n' | xargs -I placeholder $SUDO find "$MOUNT_DIR"/system/etc/placeholder -type d -exec setfattr -n security.selinux -v "u:object_r:system_file:s0" {} \; || abort
+        find "$WORK_DIR"/gapps/etc/ -maxdepth 1 -mindepth 1 -printf '%P\n' | xargs -I placeholder $SUDO find "$MOUNT_DIR"/system/etc/placeholder -type f -exec setfattr -n security.selinux -v "u:object_r:system_file:s0" {} \; || abort
+    else
+        find "$WORK_DIR"/gapps/product/app/ -maxdepth 1 -mindepth 1 -printf '%P\n' | xargs -I placeholder $SUDO find "$MOUNT_DIR"/product/app/placeholder -type d -exec setfattr -n security.selinux -v "u:object_r:system_file:s0" {} \; || abort
+        find "$WORK_DIR"/gapps/product/etc/ -maxdepth 1 -mindepth 1 -printf '%P\n' | xargs -I placeholder $SUDO find "$MOUNT_DIR"/product/etc/placeholder -type d -exec setfattr -n security.selinux -v "u:object_r:system_file:s0" {} \; || abort
+        find "$WORK_DIR"/gapps/product/priv-app/ -maxdepth 1 -mindepth 1 -printf '%P\n' | xargs -I placeholder $SUDO find "$MOUNT_DIR"/product/priv-app/placeholder -type d -exec setfattr -n security.selinux -v "u:object_r:system_file:s0" {} \; || abort
+        find "$WORK_DIR"/gapps/product/framework/ -maxdepth 1 -mindepth 1 -printf '%P\n' | xargs -I placeholder $SUDO find "$MOUNT_DIR"/product/framework/placeholder -type d -exec setfattr -n security.selinux -v "u:object_r:system_file:s0" {} \; || abort
+
+        find "$WORK_DIR"/gapps/product/app/ -maxdepth 1 -mindepth 1 -printf '%P\n' | xargs -I placeholder $SUDO find "$MOUNT_DIR"/product/app/placeholder -type f -exec setfattr -n security.selinux -v "u:object_r:system_file:s0" {} \; || abort
+        find "$WORK_DIR"/gapps/product/etc/ -maxdepth 1 -mindepth 1 -printf '%P\n' | xargs -I placeholder $SUDO find "$MOUNT_DIR"/product/etc/placeholder -type f -exec setfattr -n security.selinux -v "u:object_r:system_file:s0" {} \; || abort
+        find "$WORK_DIR"/gapps/product/priv-app/ -maxdepth 1 -mindepth 1 -printf '%P\n' | xargs -I placeholder $SUDO find "$MOUNT_DIR"/product/priv-app/placeholder -type f -exec setfattr -n security.selinux -v "u:object_r:system_file:s0" {} \; || abort
+        find "$WORK_DIR"/gapps/product/framework/ -maxdepth 1 -mindepth 1 -printf '%P\n' | xargs -I placeholder $SUDO find "$MOUNT_DIR"/product/framework/placeholder -type f -exec setfattr -n security.selinux -v "u:object_r:system_file:s0" {} \; || abort
+        find "$WORK_DIR"/gapps/system_ext/etc/permissions/ -maxdepth 1 -mindepth 1 -printf '%P\n' | xargs -I placeholder $SUDO find "$MOUNT_DIR"/system_ext/etc/permissions/placeholder -type f -exec setfattr -n security.selinux -v "u:object_r:system_file:s0" {} \; || abort
+
+        $SUDO setfattr -n security.selinux -v "u:object_r:system_lib_file:s0" "$MOUNT_DIR"/product/lib || abort
+        find "$WORK_DIR"/gapps/product/lib/ -maxdepth 1 -mindepth 1 -printf '%P\n' | xargs -I placeholder $SUDO find "$MOUNT_DIR"/product/lib/placeholder -exec setfattr -n security.selinux -v "u:object_r:system_lib_file:s0" {} \; || abort
+        find "$WORK_DIR"/gapps/product/lib64/ -maxdepth 1 -mindepth 1 -printf '%P\n' | xargs -I placeholder $SUDO find "$MOUNT_DIR"/product/lib64/placeholder -type f -exec setfattr -n security.selinux -v "u:object_r:system_lib_file:s0" {} \; || abort
+        find "$WORK_DIR"/gapps/system_ext/priv-app/ -maxdepth 1 -mindepth 1 -printf '%P\n' | xargs -I placeholder $SUDO find "$MOUNT_DIR"/system_ext/priv-app/placeholder -type d -exec setfattr -n security.selinux -v "u:object_r:system_file:s0" {} \; || abort
+        find "$WORK_DIR"/gapps/system_ext/etc/ -maxdepth 1 -mindepth 1 -printf '%P\n' | xargs -I placeholder $SUDO find "$MOUNT_DIR"/system_ext/etc/placeholder -type d -exec setfattr -n security.selinux -v "u:object_r:system_file:s0" {} \; || abort
+        find "$WORK_DIR"/gapps/system_ext/priv-app/ -maxdepth 1 -mindepth 1 -printf '%P\n' | xargs -I placeholder $SUDO find "$MOUNT_DIR"/system_ext/priv-app/placeholder -type f -exec setfattr -n security.selinux -v "u:object_r:system_file:s0" {} \; || abort
+    fi
+
+    $SUDO "$WORK_DIR"/magisk/magiskpolicy --load "$MOUNT_DIR"/vendor/etc/selinux/precompiled_sepolicy --save "$MOUNT_DIR"/vendor/etc/selinux/precompiled_sepolicy "allow gmscore_app gmscore_app vsock_socket { create connect write read }" "allow gmscore_app device_config_runtime_native_boot_prop file read" "allow gmscore_app system_server_tmpfs dir search" "allow gmscore_app system_server_tmpfs file open" "allow gmscore_app system_server_tmpfs filesystem getattr" "allow gmscore_app gpu_device dir search" || abort
+    echo -e "Integrate $GAPPS_BRAND done\n"
+fi
+
+if [ "$GAPPS_BRAND" != 'none' ]; then
+    if [ "$NOFIX_PROPS" ]; then
+        echo -e "Skip fix $GAPPS_BRAND prop!\n$GAPPS_PROPS_MSG1\n$GAPPS_PROPS_MSG2\n$GAPPS_PROPS_MSG3\n"
+    else
+        echo "Fix $GAPPS_BRAND prop"
+        $SUDO python3 fixGappsProp.py "$MOUNT_DIR" || abort
+        echo -e "done\n"
+    fi
+fi
+
+echo "Umount images"
+$SUDO find "$MOUNT_DIR" -exec touch -hamt 200901010000.00 {} \;
+$SUDO umount "$MOUNT_DIR"/vendor
+$SUDO umount "$MOUNT_DIR"/product
+$SUDO umount "$MOUNT_DIR"/system_ext
+$SUDO umount "$MOUNT_DIR"
+echo -e "done\n"
+
+echo "Shrink images"
+e2fsck -pf "$WORK_DIR"/wsa/"$ARCH"/system.img || abort
+resize2fs -M "$WORK_DIR"/wsa/"$ARCH"/system.img || abort
