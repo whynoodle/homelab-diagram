@@ -380,3 +380,178 @@ if [ -z "${OFFLINE+x}" ]; then
     fi
     if [[ "$DOWN_WSA_MAIN_VERSION" -ge 2211 ]]; then
         ANDROID_API=33
+        update_gapps_zip_name
+    fi
+    if [ -z "${CUSTOM_MAGISK+x}" ]; then
+        python3 generateMagiskLink.py "$MAGISK_VER" "$DOWNLOAD_DIR" "$DOWNLOAD_CONF_NAME" || abort
+    fi
+    if [ "$GAPPS_BRAND" != "none" ]; then
+        python3 generateGappsLink.py "$ARCH" "$GAPPS_BRAND" "$GAPPS_VARIANT" "$DOWNLOAD_DIR" "$DOWNLOAD_CONF_NAME" "$ANDROID_API" "$GAPPS_ZIP_NAME" || abort
+    fi
+
+    echo "Download Artifacts"
+    if ! aria2c --no-conf --log-level=info --log="$DOWNLOAD_DIR/aria2_download.log" -x16 -s16 -j5 -c -R -m0 --async-dns=false --check-integrity=true --continue=true --allow-overwrite=true --conditional-get=true -d"$DOWNLOAD_DIR" -i"$DOWNLOAD_DIR"/"$DOWNLOAD_CONF_NAME"; then
+        echo "We have encountered an error while downloading files."
+        exit 1
+    fi
+else
+    declare -A FILES_CHECK_LIST=([WSA_ZIP_PATH]="$WSA_ZIP_PATH" [xaml_PATH]="$xaml_PATH" [vclibs_PATH]="$vclibs_PATH" [MAGISK_PATH]="$MAGISK_PATH")
+    for i in "${FILES_CHECK_LIST[@]}"; do
+        if [ ! -f "$i" ]; then
+            echo "Offline mode: missing [$i]."
+            OFFLINE_ERR="1"
+        fi
+    done
+    if [ "$GAPPS_BRAND" != 'none' ]; then
+        if [ ! -f "$GAPPS_PATH" ]; then
+            echo "Offline mode: missing [$GAPPS_PATH]."
+            OFFLINE_ERR="1"
+        fi
+    fi
+    if [ "$OFFLINE_ERR" ]; then
+        echo "Offline mode: Some files are missing, please disable offline mode."
+        exit 1
+    fi
+    require_su
+fi
+
+echo "Extract WSA"
+if [ -f "$WSA_ZIP_PATH" ]; then
+    if ! python3 extractWSA.py "$ARCH" "$WSA_ZIP_PATH" "$WORK_DIR"; then
+        echo "Unzip WSA failed, is the download incomplete?"
+        CLEAN_DOWNLOAD_WSA=1
+        abort
+    fi
+    echo -e "Extract done\n"
+    # shellcheck disable=SC1091
+    source "${WORK_DIR:?}/ENV" || abort
+    if [[ "$WSA_MAIN_VER" -ge 2211 ]]; then
+        ANDROID_API=33
+        update_gapps_zip_name
+    fi
+else
+    echo "The WSA zip package does not exist, is the download incomplete?"
+    exit 1
+fi
+
+echo "Extract Magisk"
+if [ -f "$MAGISK_PATH" ]; then
+    version=""
+    versionCode=0
+    if ! python3 extractMagisk.py "$ARCH" "$MAGISK_PATH" "$WORK_DIR"; then
+        echo "Unzip Magisk failed, is the download incomplete?"
+        CLEAN_DOWNLOAD_MAGISK=1
+        abort
+    fi
+    # shellcheck disable=SC1091
+    source "${WORK_DIR:?}/ENV" || abort
+    $SUDO patchelf --replace-needed libc.so "../linker/$HOST_ARCH/libc.so" "$WORK_DIR"/magisk/magiskpolicy || abort
+    $SUDO patchelf --replace-needed libm.so "../linker/$HOST_ARCH/libm.so" "$WORK_DIR"/magisk/magiskpolicy || abort
+    $SUDO patchelf --replace-needed libdl.so "../linker/$HOST_ARCH/libdl.so" "$WORK_DIR"/magisk/magiskpolicy || abort
+    chmod +x "../linker/$HOST_ARCH/linker64" || abort
+    $SUDO patchelf --set-interpreter "../linker/$HOST_ARCH/linker64" "$WORK_DIR"/magisk/magiskpolicy || abort
+    chmod +x "$WORK_DIR"/magisk/magiskpolicy || abort
+elif [ -z "${CUSTOM_MAGISK+x}" ]; then
+    echo "The Magisk zip package does not exist, is the download incomplete?"
+    exit 1
+else
+    echo "The Magisk zip package does not exist, rename it to magisk-debug.zip and put it in the download folder."
+    exit 1
+fi
+echo -e "done\n"
+
+if [ "$GAPPS_BRAND" != 'none' ]; then
+    echo "Extract $GAPPS_BRAND"
+    mkdir -p "$WORK_DIR"/gapps || abort
+    if [ -f "$GAPPS_PATH" ]; then
+        if [ "$GAPPS_BRAND" = "OpenGApps" ]; then
+            if ! unzip -p "$GAPPS_PATH" {Core,GApps}/'*.lz' | tar --lzip -C "$WORK_DIR"/gapps -xf - -i --strip-components=2 --exclude='setupwizardtablet-x86_64' --exclude='packageinstallergoogle-all' --exclude='speech-common' --exclude='markup-lib-arm' --exclude='markup-lib-arm64' --exclude='markup-all' --exclude='setupwizarddefault-x86_64' --exclude='pixellauncher-all' --exclude='pixellauncher-common'; then
+                echo "Unzip OpenGApps failed, is the download incomplete?"
+                CLEAN_DOWNLOAD_GAPPS=1
+                abort
+            fi
+        else
+            if ! unzip "$GAPPS_PATH" "system/*" -x "system/addon.d/*" "system/system_ext/priv-app/SetupWizard/*" -d "$WORK_DIR"/gapps; then
+                echo "Unzip MindTheGapps failed, package is corrupted?"
+                CLEAN_DOWNLOAD_GAPPS=1
+                abort
+            fi
+            mv "$WORK_DIR"/gapps/system/* "$WORK_DIR"/gapps || abort
+            rm -rf "${WORK_DIR:?}"/gapps/system || abort
+        fi
+        cp -r ../"$ARCH"/gapps/* "$WORK_DIR"/gapps || abort
+    else
+        echo "The $GAPPS_BRAND zip package does not exist."
+        abort
+    fi
+    echo -e "Extract done\n"
+fi
+
+echo "Expand images"
+if [ ! -f /etc/mtab ]; then $SUDO ln -s /proc/self/mounts /etc/mtab; fi
+e2fsck -pf "$WORK_DIR"/wsa/"$ARCH"/system_ext.img || abort
+SYSTEM_EXT_SIZE=$(($(du --apparent-size -sB512 "$WORK_DIR"/wsa/"$ARCH"/system_ext.img | cut -f1) + 20000))
+if [ -d "$WORK_DIR"/gapps/system_ext ]; then
+    SYSTEM_EXT_SIZE=$(( SYSTEM_EXT_SIZE + $(du --apparent-size -sB512 "$WORK_DIR"/gapps/system_ext | cut -f1) ))
+fi
+resize2fs "$WORK_DIR"/wsa/"$ARCH"/system_ext.img "$SYSTEM_EXT_SIZE"s || abort
+
+e2fsck -pf "$WORK_DIR"/wsa/"$ARCH"/product.img || abort
+PRODUCT_SIZE=$(($(du --apparent-size -sB512 "$WORK_DIR"/wsa/"$ARCH"/product.img | cut -f1) + 20000))
+if [ -d "$WORK_DIR"/gapps/product ]; then
+    PRODUCT_SIZE=$(( PRODUCT_SIZE + $(du --apparent-size -sB512 "$WORK_DIR"/gapps/product | cut -f1) ))
+fi
+resize2fs "$WORK_DIR"/wsa/"$ARCH"/product.img "$PRODUCT_SIZE"s || abort
+
+e2fsck -pf "$WORK_DIR"/wsa/"$ARCH"/system.img || abort
+SYSTEM_SIZE=$(($(du --apparent-size -sB512 "$WORK_DIR"/wsa/"$ARCH"/system.img | cut -f1) + 20000))
+if [ -d "$WORK_DIR"/gapps ]; then
+    SYSTEM_SIZE=$(( SYSTEM_SIZE + $(du --apparent-size -sB512 "$WORK_DIR"/gapps | cut -f1) - $(du --apparent-size -sB512 "$WORK_DIR"/gapps/product | cut -f1) ))
+    if [ -d "$WORK_DIR"/gapps/system_ext ]; then
+        SYSTEM_SIZE=$(( SYSTEM_SIZE - $(du --apparent-size -sB512 "$WORK_DIR"/gapps/system_ext | cut -f1) ))
+    fi
+fi
+if [ -d "$WORK_DIR"/magisk ]; then
+    SYSTEM_SIZE=$(( SYSTEM_SIZE + $(du --apparent-size -sB512 "$WORK_DIR"/magisk/magisk | cut -f1) ))
+fi
+if [ -f "$MAGISK_PATH" ]; then
+    SYSTEM_SIZE=$(( SYSTEM_SIZE + $(du --apparent-size -sB512 "$MAGISK_PATH" | cut -f1) ))
+fi
+if [ -d "../$ARCH/system" ]; then
+    SYSTEM_SIZE=$(( SYSTEM_SIZE + $(du --apparent-size -sB512 "../$ARCH/system" | cut -f1) ))
+fi
+resize2fs "$WORK_DIR"/wsa/"$ARCH"/system.img "$SYSTEM_SIZE"s || abort
+
+e2fsck -pf "$WORK_DIR"/wsa/"$ARCH"/vendor.img || abort
+VENDOR_SIZE=$(($(du --apparent-size -sB512 "$WORK_DIR"/wsa/"$ARCH"/vendor.img | cut -f1) + 20000))
+resize2fs "$WORK_DIR"/wsa/"$ARCH"/vendor.img "$VENDOR_SIZE"s || abort
+echo -e "Expand images done\n"
+
+echo "Mount images"
+$SUDO mkdir "$MOUNT_DIR" || abort
+$SUDO mount -o loop "$WORK_DIR"/wsa/"$ARCH"/system.img "$MOUNT_DIR" || abort
+$SUDO mount -o loop "$WORK_DIR"/wsa/"$ARCH"/vendor.img "$MOUNT_DIR"/vendor || abort
+$SUDO mount -o loop "$WORK_DIR"/wsa/"$ARCH"/product.img "$MOUNT_DIR"/product || abort
+$SUDO mount -o loop "$WORK_DIR"/wsa/"$ARCH"/system_ext.img "$MOUNT_DIR"/system_ext || abort
+echo -e "done\n"
+
+if [ "$REMOVE_AMAZON" ]; then
+    echo "Remove Amazon Appstore"
+    find "${MOUNT_DIR:?}"/product/{etc/permissions,etc/sysconfig,framework,priv-app} | grep -e amazon -e venezia | $SUDO xargs rm -rf
+    find "${MOUNT_DIR:?}"/system_ext/{etc/*permissions,framework,priv-app} | grep -e amazon -e venezia | $SUDO xargs rm -rf
+    echo -e "done\n"
+fi
+
+echo "Add device administration features"
+$SUDO sed -i -e '/cts/a \ \ \ \ <feature name="android.software.device_admin" />' -e '/print/i \ \ \ \ <feature name="android.software.managed_users" />' "$MOUNT_DIR"/vendor/etc/permissions/windows.permissions.xml
+$SUDO setfattr -n security.selinux -v "u:object_r:vendor_configs_file:s0" "$MOUNT_DIR"/vendor/etc/permissions/windows.permissions.xml || abort
+echo -e "done\n"
+
+if [ "$ROOT_SOL" = 'magisk' ] || [ "$ROOT_SOL" = '' ]; then
+    echo "Integrate Magisk"
+    $SUDO mkdir "$MOUNT_DIR"/sbin
+    $SUDO setfattr -n security.selinux -v "u:object_r:rootfs:s0" "$MOUNT_DIR"/sbin || abort
+    $SUDO chown root:root "$MOUNT_DIR"/sbin
+    $SUDO chmod 0700 "$MOUNT_DIR"/sbin
+    $SUDO cp "$WORK_DIR"/magisk/magisk/* "$MOUNT_DIR"/sbin/
+    $SUDO cp "$MAGISK_PATH" "$MOUNT_DIR"/sbin/magisk.apk
