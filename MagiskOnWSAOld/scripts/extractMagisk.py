@@ -26,4 +26,11 @@ import platform
 import os
 
 is_x86_64 = platform.machine() in ("AMD64", "x86_64")
-host_abi = "x64" if is_x86_64 else "arm
+host_abi = "x64" if is_x86_64 else "arm64"
+arch = sys.argv[1]
+magisk_zip = sys.argv[2]
+workdir = Path(sys.argv[3]) / "magisk"
+if not Path(workdir).is_dir():
+    workdir.mkdir()
+
+abi_map = {"x64": 
