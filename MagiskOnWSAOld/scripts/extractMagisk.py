@@ -17,3 +17,13 @@
 #
 # Copyright (C) 2022 LSPosed Contributors
 #
+
+import sys
+
+import zipfile
+from pathlib import Path
+import platform
+import os
+
+is_x86_64 = platform.machine() in ("AMD64", "x86_64")
+host_abi = "x64" if is_x86_64 else "arm
