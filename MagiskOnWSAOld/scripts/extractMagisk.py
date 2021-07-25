@@ -33,4 +33,9 @@ workdir = Path(sys.argv[3]) / "magisk"
 if not Path(workdir).is_dir():
     workdir.mkdir()
 
-abi_map = {"x64": 
+abi_map = {"x64": ["x86_64", "x86"], "arm64": ["arm64-v8a", "armeabi-v7a"]}
+
+def extract_as(zip, name, as_name, dir):
+    info = zip.getinfo(name)
+    info.filename = as_name
+    z
