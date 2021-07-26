@@ -38,4 +38,8 @@ abi_map = {"x64": ["x86_64", "x86"], "arm64": ["arm64-v8a", "armeabi-v7a"]}
 def extract_as(zip, name, as_name, dir):
     info = zip.getinfo(name)
     info.filename = as_name
-    z
+    zip.extract(info, workdir / dir)
+
+with zipfile.ZipFile(magisk_zip) as zip:
+    comment = zip.comment.decode('utf-8')
+    with open(os.environ['WSA_WORK_ENV'], 'a') as e
