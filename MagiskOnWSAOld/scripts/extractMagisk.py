@@ -42,4 +42,8 @@ def extract_as(zip, name, as_name, dir):
 
 with zipfile.ZipFile(magisk_zip) as zip:
     comment = zip.comment.decode('utf-8')
-    with open(os.environ['WSA_WORK_ENV'], 'a') as e
+    with open(os.environ['WSA_WORK_ENV'], 'a') as environ_file:
+        environ_file.write(f'{comment}\n')
+    print(f'{comment}', flush=True)
+    extract_as(
+        zip, f"lib/{ abi_map[arch][0] }/libmagisk64.so", "magisk64",
