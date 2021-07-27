@@ -46,4 +46,9 @@ with zipfile.ZipFile(magisk_zip) as zip:
         environ_file.write(f'{comment}\n')
     print(f'{comment}', flush=True)
     extract_as(
-        zip, f"lib/{ abi_map[arch][0] }/libmagisk64.so", "magisk64",
+        zip, f"lib/{ abi_map[arch][0] }/libmagisk64.so", "magisk64", "magisk")
+    extract_as(
+        zip, f"lib/{ abi_map[arch][1] }/libmagisk32.so", "magisk32", "magisk")
+    standalone_policy = False
+    try:
+        zip.getinfo(f"lib/{ 
