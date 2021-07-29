@@ -56,4 +56,9 @@ with zipfile.ZipFile(magisk_zip) as zip:
     except:
         pass
     extract_as(
-        zip, f"lib/{ abi_map[arch][0] }/libmagiskinit.so", "magiskinit", "m
+        zip, f"lib/{ abi_map[arch][0] }/libmagiskinit.so", "magiskinit", "magisk")
+    if standalone_policy:
+        extract_as(
+            zip, f"lib/{ abi_map[arch][0] }/libmagiskpolicy.so", "magiskpolicy", "magisk")
+    else:
+        ext
