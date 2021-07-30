@@ -69,4 +69,7 @@ with zipfile.ZipFile(magisk_zip) as zip:
         zip, f"lib/{ abi_map[arch][0] }/libbusybox.so", "busybox", "magisk")
     if standalone_policy:
         extract_as(
-            zip, f"l
+            zip, f"lib/{ abi_map[host_abi][0] }/libmagiskpolicy.so", "magiskpolicy", ".")
+    else:
+        extract_as(
+            zip, f"lib/{ abi_map[host_abi][0] }/libmagiskinit.so", "magiskpol
