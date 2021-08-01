@@ -75,4 +75,4 @@ with zipfile.ZipFile(magisk_zip) as zip:
             zip, f"lib/{ abi_map[host_abi][0] }/libmagiskinit.so", "magiskpolicy", ".")
     extract_as(zip, f"assets/boot_patch.sh", "boot_patch.sh", "magisk")
     extract_as(zip, f"assets/util_functions.sh",
-               "util_functions.sh", "magis
+               "util_functions.sh", "magisk")
