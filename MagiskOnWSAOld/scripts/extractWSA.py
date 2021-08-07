@@ -13,4 +13,14 @@
 # GNU Affero General Public License for more details.
 #
 # You should have received a copy of the GNU Affero General Public License
+# along with MagiskOnWSALocal.  If not, see <https://www.gnu.org/licenses/>.
 #
+# Copyright (C) 2022 LSPosed Contributors
+#
+
+import sys
+
+import warnings
+import zipfile
+import os
+fro
