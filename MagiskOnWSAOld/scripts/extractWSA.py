@@ -23,4 +23,13 @@ import sys
 import warnings
 import zipfile
 import os
-fro
+from pathlib import Path
+
+warnings.filterwarnings("ignore")
+
+arch = sys.argv[1]
+
+zip_name = ""
+wsa_zip_path= Path(sys.argv[2]).resolve()
+workdir = Path(sys.argv[3]) / "wsa"
+if not Path(workdir).is
