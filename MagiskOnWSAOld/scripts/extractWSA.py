@@ -32,4 +32,9 @@ arch = sys.argv[1]
 zip_name = ""
 wsa_zip_path= Path(sys.argv[2]).resolve()
 workdir = Path(sys.argv[3]) / "wsa"
-if not Path(workdir).is
+if not Path(workdir).is_dir():
+    workdir.mkdir()
+with zipfile.ZipFile(wsa_zip_path) as zip:
+    for f in zip.filelist:
+        if arch in f.filename.lower():
+            zip_name = f
