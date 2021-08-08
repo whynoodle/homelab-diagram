@@ -41,3 +41,7 @@ with zipfile.ZipFile(wsa_zip_path) as zip:
             output_name = zip_name[11:-5]
             if not Path(workdir / zip_name).is_file():
                 zip_path = workdir / zip_name
+                print(f"unzipping to {workdir}", flush=True)
+                zip.extract(f, workdir)
+                ver_no = zip_name.split("_")
+                long_ver = 
