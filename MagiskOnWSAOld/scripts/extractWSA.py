@@ -37,4 +37,7 @@ if not Path(workdir).is_dir():
 with zipfile.ZipFile(wsa_zip_path) as zip:
     for f in zip.filelist:
         if arch in f.filename.lower():
-            zip_name = f
+            zip_name = f.filename
+            output_name = zip_name[11:-5]
+            if not Path(workdir / zip_name).is_file():
+                zip_path = workdir / zip_name
