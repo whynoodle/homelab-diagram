@@ -49,4 +49,6 @@ with zipfile.ZipFile(wsa_zip_path) as zip:
                 main_ver = ver[0]
                 rel = ver_no[3].split(".")
                 rel_long = str(rel[0])
-                with open(
+                with open(os.environ['WSA_WORK_ENV'], 'a') as environ_file:
+                    environ_file.write(f'WSA_VER={long_ver}\n')
+                    environ_file.write(f'W
