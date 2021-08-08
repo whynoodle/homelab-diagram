@@ -44,4 +44,9 @@ with zipfile.ZipFile(wsa_zip_path) as zip:
                 print(f"unzipping to {workdir}", flush=True)
                 zip.extract(f, workdir)
                 ver_no = zip_name.split("_")
-                long_ver = 
+                long_ver = ver_no[1]
+                ver = long_ver.split(".")
+                main_ver = ver[0]
+                rel = ver_no[3].split(".")
+                rel_long = str(rel[0])
+                with open(
