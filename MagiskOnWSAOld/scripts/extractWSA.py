@@ -60,4 +60,7 @@ with zipfile.ZipFile(wsa_zip_path) as zip:
             zip.extract(f, workdir)
             with zipfile.ZipFile(workdir / f.filename) as l:
                 for g in l.filelist:
-           
+                    if g.filename == 'resources.pri':
+                        g.filename = f'{name}.pri'
+                        l.extract(g, workdir / 'pri')
+          
