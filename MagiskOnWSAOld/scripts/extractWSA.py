@@ -56,4 +56,8 @@ with zipfile.ZipFile(wsa_zip_path) as zip:
                 with open(os.environ['GITHUB_ENV'], 'a') as environ_file:
                     environ_file.write(f'WSA_VER={long_ver}\n')
         if 'language' in f.filename.lower() or 'scale' in f.filename.lower():
-            name = f.filename.split("-", 
+            name = f.filename.split("-", 1)[1].split(".")[0]
+            zip.extract(f, workdir)
+            with zipfile.ZipFile(workdir / f.filename) as l:
+                for g in l.filelist:
+           
