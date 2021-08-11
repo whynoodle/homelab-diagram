@@ -63,4 +63,7 @@ with zipfile.ZipFile(wsa_zip_path) as zip:
                     if g.filename == 'resources.pri':
                         g.filename = f'{name}.pri'
                         l.extract(g, workdir / 'pri')
-          
+                    elif g.filename == 'AppxManifest.xml':
+                        g.filename = f'{name}.xml'
+                        l.extract(g, workdir / 'xml')
+with zipfi
