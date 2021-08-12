@@ -66,4 +66,7 @@ with zipfile.ZipFile(wsa_zip_path) as zip:
                     elif g.filename == 'AppxManifest.xml':
                         g.filename = f'{name}.xml'
                         l.extract(g, workdir / 'xml')
-with zipfi
+with zipfile.ZipFile(zip_path) as zip:
+    if not Path(workdir / arch).is_dir():
+        print(f"unzipping from {zip_path}", flush=True)
+        zip.extractall(workdir / arch)
