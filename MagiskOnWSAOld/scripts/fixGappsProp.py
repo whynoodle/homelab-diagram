@@ -21,4 +21,9 @@
 from __future__ import annotations
 from io import TextIOWrapper
 from typing import OrderedDict
-f
+from pathlib import Path
+import sys
+class Prop(OrderedDict):
+    def __init__(self, file: TextIOWrapper) -> None:
+        super().__init__()
+        for i, line in enum
