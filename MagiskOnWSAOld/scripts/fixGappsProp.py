@@ -26,4 +26,9 @@ import sys
 class Prop(OrderedDict):
     def __init__(self, file: TextIOWrapper) -> None:
         super().__init__()
-        for i, line in enum
+        for i, line in enumerate(file.read().splitlines(False)):
+            if '=' in line:
+                k, v = line.split('=', 2)
+                self[k] = v
+            else:
+                self[f".{i
