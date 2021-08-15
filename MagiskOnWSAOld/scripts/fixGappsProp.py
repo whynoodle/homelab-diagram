@@ -31,4 +31,10 @@ class Prop(OrderedDict):
                 k, v = line.split('=', 2)
                 self[k] = v
             else:
-                self[f".{i
+                self[f".{i}"] = line
+
+    def __str__(self) -> str:
+        return '\n'.join([v if k.startswith('.') else f"{k}={v}" for k, v in self.items()])
+
+    def __iadd__(self, other: str) -> Prop:
+   
