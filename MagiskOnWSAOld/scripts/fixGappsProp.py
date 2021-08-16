@@ -37,4 +37,11 @@ class Prop(OrderedDict):
         return '\n'.join([v if k.startswith('.') else f"{k}={v}" for k, v in self.items()])
 
     def __iadd__(self, other: str) -> Prop:
-   
+        self[f".{len(self)}"] = other
+        return self
+
+
+new_props = {
+    ("product", "brand"): "google",
+    ("product", "manufacturer"): "Google",
+    ("build", "product"):
