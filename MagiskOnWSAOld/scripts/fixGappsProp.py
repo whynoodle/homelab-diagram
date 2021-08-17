@@ -44,4 +44,8 @@ class Prop(OrderedDict):
 new_props = {
     ("product", "brand"): "google",
     ("product", "manufacturer"): "Google",
-    ("build", "product"):
+    ("build", "product"): "redfin",
+    ("product", "name"): "redfin",
+    ("product", "device"): "redfin",
+    ("product", "model"): "Pixel 5",
+    ("build", "flavor"): "redf
