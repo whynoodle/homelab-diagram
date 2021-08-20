@@ -48,4 +48,9 @@ new_props = {
     ("product", "name"): "redfin",
     ("product", "device"): "redfin",
     ("product", "model"): "Pixel 5",
-    ("build", "flavor"): "redf
+    ("build", "flavor"): "redfin-user"
+}
+
+
+def description(sec: str, p: Prop) -> str:
+    return f"{p[f'ro.{sec}.build.flavor']} {p[f'ro.{sec}.build.version.release_or_codename']} {p[f'ro.{sec}.buil
