@@ -53,4 +53,8 @@ new_props = {
 
 
 def description(sec: str, p: Prop) -> str:
-    return f"{p[f'ro.{sec}.build.flavor']} {p[f'ro.{sec}.build.version.release_or_codename']} {p[f'ro.{sec}.buil
+    return f"{p[f'ro.{sec}.build.flavor']} {p[f'ro.{sec}.build.version.release_or_codename']} {p[f'ro.{sec}.build.id']} {p[f'ro.{sec}.build.version.incremental']} {p[f'ro.{sec}.build.tags']}"
+
+
+def fingerprint(sec: str, p: Prop) -> str:
+    return f"""{p[f"ro.product.{sec}.brand"
