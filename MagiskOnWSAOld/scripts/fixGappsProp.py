@@ -57,4 +57,11 @@ def description(sec: str, p: Prop) -> str:
 
 
 def fingerprint(sec: str, p: Prop) -> str:
-    return f"""{p[f"ro.product.{sec}.brand"]}/{p[f"ro.product.{sec}.name"]}/{p[f"ro.product.{sec}.device"]}:{p[f"ro.{sec}.build.version.release"]}/{p[f"ro.{sec}.build.id"]}/{p[f"ro.{sec}.build.version.in
+    return f"""{p[f"ro.product.{sec}.brand"]}/{p[f"ro.product.{sec}.name"]}/{p[f"ro.product.{sec}.device"]}:{p[f"ro.{sec}.build.version.release"]}/{p[f"ro.{sec}.build.id"]}/{p[f"ro.{sec}.build.version.incremental"]}:{p[f"ro.{sec}.build.type"]}/{p[f"ro.{sec}.build.tags"]}"""
+
+
+def fix_prop(sec, prop):
+    if not Path(prop).is_file():
+        return
+
+    print(f"fixing {prop}", flush=Tr
