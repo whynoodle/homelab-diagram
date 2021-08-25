@@ -64,4 +64,13 @@ def fix_prop(sec, prop):
     if not Path(prop).is_file():
         return
 
-    print(f"fixing {prop}", flush=Tr
+    print(f"fixing {prop}", flush=True)
+    with open(prop, 'r') as f:
+        p = Prop(f)
+
+    p += "# extra prop added by MagiskOnWSA"
+
+    for k, v in new_props.items():
+        p[f"ro.{k[0]}.{k[1]}"] = v
+
+   
