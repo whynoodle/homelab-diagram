@@ -81,4 +81,11 @@ def fix_prop(sec, prop):
     p["ro.build.description"] = description(sec, p)
     p[f"ro.build.fingerprint"] = fingerprint(sec, p)
     p[f"ro.{sec}.build.description"] = description(sec, p)
-    p[f"ro.{sec}.build.fingerprint"] = fingerp
+    p[f"ro.{sec}.build.fingerprint"] = fingerprint(sec, p)
+    p[f"ro.bootimage.build.fingerprint"] = fingerprint(sec, p)
+
+    with open(prop, 'w') as f:
+        f.write(str(p))
+
+
+sys_path = sys.argv[
