@@ -78,4 +78,7 @@ def fix_prop(sec, prop):
         elif k[0] == "product":
             p[f"ro.{k[0]}.{sec}.{k[1]}"] = v
 
-    p["ro.build.descri
+    p["ro.build.description"] = description(sec, p)
+    p[f"ro.build.fingerprint"] = fingerprint(sec, p)
+    p[f"ro.{sec}.build.description"] = description(sec, p)
+    p[f"ro.{sec}.build.fingerprint"] = fingerp
