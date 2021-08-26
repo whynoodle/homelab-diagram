@@ -73,4 +73,9 @@ def fix_prop(sec, prop):
     for k, v in new_props.items():
         p[f"ro.{k[0]}.{k[1]}"] = v
 
-   
+        if k[0] == "build":
+            p[f"ro.{sec}.{k[0]}.{k[1]}"] = v
+        elif k[0] == "product":
+            p[f"ro.{k[0]}.{sec}.{k[1]}"] = v
+
+    p["ro.build.descri
