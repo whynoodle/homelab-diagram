@@ -88,4 +88,5 @@ def fix_prop(sec, prop):
         f.write(str(p))
 
 
-sys_path = sys.argv[
+sys_path = sys.argv[1]
+for sec, prop in {"system": sys_path+"/system/build.prop", "product": sys_path+"/product/build.prop", "system_ext": sys_path+"/system_ext/build.prop", "vendor": sys_p
