@@ -30,4 +30,9 @@ brand = sys.argv[2]
 variant = sys.argv[3]
 download_dir = Path.cwd().parent / \
     "download" if sys.argv[4] == "" else Path(sys.argv[4]).resolve()
-tempScrip
+tempScript = sys.argv[5]
+android_api = sys.argv[6]
+file_name = sys.argv[7]
+print(
+    f"Generating {brand} download link: arch={arch} variant={variant}", flush=True)
+abi_map
