@@ -25,4 +25,9 @@ import json
 import re
 from pathlib import Path
 
-arch = sys.arg
+arch = sys.argv[1]
+brand = sys.argv[2]
+variant = sys.argv[3]
+download_dir = Path.cwd().parent / \
+    "download" if sys.argv[4] == "" else Path(sys.argv[4]).resolve()
+tempScrip
