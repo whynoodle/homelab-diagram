@@ -35,4 +35,7 @@ android_api = sys.argv[6]
 file_name = sys.argv[7]
 print(
     f"Generating {brand} download link: arch={arch} variant={variant}", flush=True)
-abi_map
+abi_map = {"x64": "x86_64", "arm64": "arm64"}
+android_api_map = {"30": "11.0", "32": "12.1", "33": "13.0"}
+release = android_api_map[android_api]
+if
