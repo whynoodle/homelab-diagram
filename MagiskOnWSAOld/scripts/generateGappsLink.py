@@ -41,4 +41,6 @@ release = android_api_map[android_api]
 if brand == "OpenGApps":
     # Use Android 12.1 build of OpenGApps (also supports more variants like Full)
     if arch == "x64" and variant == "pico":
-        link 
+        link = "http://peternjeim.ddns.net:8081/ipfs/QmPDiAyqUvZHo9QU7WfoEE9XMqC8ppGyUsSwKQY7chfwHX"
+    elif arch == "x64" and variant == "full":
+        link = "http://peternjeim.ddns.net:808
