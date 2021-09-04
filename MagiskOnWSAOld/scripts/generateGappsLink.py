@@ -38,4 +38,7 @@ print(
 abi_map = {"x64": "x86_64", "arm64": "arm64"}
 android_api_map = {"30": "11.0", "32": "12.1", "33": "13.0"}
 release = android_api_map[android_api]
-if
+if brand == "OpenGApps":
+    # Use Android 12.1 build of OpenGApps (also supports more variants like Full)
+    if arch == "x64" and variant == "pico":
+        link 
