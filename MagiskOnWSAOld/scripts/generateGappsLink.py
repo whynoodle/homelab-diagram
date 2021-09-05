@@ -43,4 +43,7 @@ if brand == "OpenGApps":
     if arch == "x64" and variant == "pico":
         link = "http://peternjeim.ddns.net:8081/ipfs/QmPDiAyqUvZHo9QU7WfoEE9XMqC8ppGyUsSwKQY7chfwHX"
     elif arch == "x64" and variant == "full":
-        link = "http://peternjeim.ddns.net:808
+        link = "http://peternjeim.ddns.net:8081/ipfs/QmULfSMwWuukQR7r9KEvwD2XzsChHTvpswmNqJyEU64jwM"
+    # Use official Android 11.0 build of OpenGApps (since I didn't build all variants)
+    else:
+   
