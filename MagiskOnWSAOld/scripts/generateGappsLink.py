@@ -49,4 +49,7 @@ if brand == "OpenGApps":
         try:
             res = requests.get(f"https://api.opengapps.org/list")
             j = json.loads(res.content)
-            link = {i["name"]: i for i in j["archs"][abi_m
+            link = {i["name"]: i for i in j["archs"][abi_map[arch]]
+                    ["apis"][release]["variants"]}[variant]["zip"]
+            # print(f"JSON={j}", flush=True)
+            DATE=j["archs"][abi_map
