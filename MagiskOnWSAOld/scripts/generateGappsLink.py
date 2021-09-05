@@ -46,4 +46,7 @@ if brand == "OpenGApps":
         link = "http://peternjeim.ddns.net:8081/ipfs/QmULfSMwWuukQR7r9KEvwD2XzsChHTvpswmNqJyEU64jwM"
     # Use official Android 11.0 build of OpenGApps (since I didn't build all variants)
     else:
-   
+        try:
+            res = requests.get(f"https://api.opengapps.org/list")
+            j = json.loads(res.content)
+            link = {i["name"]: i for i in j["archs"][abi_m
