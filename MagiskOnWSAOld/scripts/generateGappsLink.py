@@ -55,4 +55,7 @@ if brand == "OpenGApps":
             DATE=j["archs"][abi_map[arch]]["date"]
             print(f"DATE={DATE}", flush=True)
         except Exception:
-            print("Failed to fetch from OpenGApps API, fallbacking to SourceF
+            print("Failed to fetch from OpenGApps API, fallbacking to SourceForge RSS...")
+            res = requests.get(
+                f'https://sourceforge.net/projects/opengapps/rss?path=/{abi_map[arch]}&limit=100')
+            link = re.search
