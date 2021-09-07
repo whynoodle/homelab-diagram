@@ -59,4 +59,7 @@ if brand == "OpenGApps":
             res = requests.get(
                 f'https://sourceforge.net/projects/opengapps/rss?path=/{abi_map[arch]}&limit=100')
             link = re.search(f'https://.*{abi_map[arch]}/.*{release}.*{variant}.*\.zip/download', res.text).group().replace(
-                '.zip/download', '.zip').replace('sourceforge.net/projec
+                '.zip/download', '.zip').replace('sourceforge.net/projects/opengapps/files', 'downloads.sourceforge.net/project/opengapps')
+elif brand == "MindTheGapps":
+    res = requests.get(
+        f'https://sourceforge.net
