@@ -62,4 +62,6 @@ if brand == "OpenGApps":
                 '.zip/download', '.zip').replace('sourceforge.net/projects/opengapps/files', 'downloads.sourceforge.net/project/opengapps')
 elif brand == "MindTheGapps":
     res = requests.get(
-        f'https://sourceforge.net
+        f'https://sourceforge.net/projects/wsa-mtg/rss?path=/{abi_map[arch]}&limit=100')
+    link = re.search(f'https://.*{release}.*{abi_map[arch]}.*\.zip/download', res.text).group().replace(
+        '.zip/download'
