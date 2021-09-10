@@ -68,4 +68,7 @@ elif brand == "MindTheGapps":
 
 print(f"download link: {link}", flush=True)
 
-w
+with open(download_dir/tempScript, 'a') as f:
+    f.writelines(f'{link}\n')
+    f.writelines(f'  dir={download_dir}\n')
+    f.writelines(f'  out={file_name}\n')
