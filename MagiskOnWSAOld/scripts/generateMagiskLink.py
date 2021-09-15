@@ -31,4 +31,7 @@ tempScript = sys.argv[3]
 print(f"Generating Magisk download link: release type={magisk_ver}", flush=True)
 if not magisk_ver:
     magisk_ver = "stable"
-if magisk_ver == "stable" or magisk_ver == "beta" or magisk_ver == "canary" or magisk_v
+if magisk_ver == "stable" or magisk_ver == "beta" or magisk_ver == "canary" or magisk_ver == "debug":
+    try:
+        magisk_link = json.loads(requests.get(
+            f"https://github.com/topjohnwu/magisk-files/raw/master/{magisk_ver}.json").content)
