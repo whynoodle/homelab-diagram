@@ -28,4 +28,7 @@ from pathlib import Path
 magisk_ver = sys.argv[1]
 download_dir = Path.cwd().parent / "download" if sys.argv[2] == "" else Path(sys.argv[2]).resolve()
 tempScript = sys.argv[3]
-print(f"Generating Magisk download li
+print(f"Generating Magisk download link: release type={magisk_ver}", flush=True)
+if not magisk_ver:
+    magisk_ver = "stable"
+if magisk_ver == "stable" or magisk_ver == "beta" or magisk_ver == "canary" or magisk_v
