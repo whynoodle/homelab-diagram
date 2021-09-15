@@ -25,4 +25,7 @@ import json
 import requests
 from pathlib import Path
 
-magisk_ver = sys.ar
+magisk_ver = sys.argv[1]
+download_dir = Path.cwd().parent / "download" if sys.argv[2] == "" else Path(sys.argv[2]).resolve()
+tempScript = sys.argv[3]
+print(f"Generating Magisk download li
