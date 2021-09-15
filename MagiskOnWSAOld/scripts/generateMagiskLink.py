@@ -40,4 +40,6 @@ if magisk_ver == "stable" or magisk_ver == "beta" or magisk_ver == "canary" or m
         with open(os.environ['GITHUB_ENV'], 'a') as environ_file:
                 environ_file.write(f'MAGISK_VERSION={magisk_version}\n')
     except Exception:
-        pr
+        print("Failed to fetch from GitHub API, fallbacking to jsdelivr...")
+        magisk_link = json.loads(requests.get(
+            f"https://fastly.jsdelivr.net/gh/topjohn
