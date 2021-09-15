@@ -34,4 +34,7 @@ if not magisk_ver:
 if magisk_ver == "stable" or magisk_ver == "beta" or magisk_ver == "canary" or magisk_ver == "debug":
     try:
         magisk_link = json.loads(requests.get(
-            f"https://github.com/topjohnwu/magisk-files/raw/master/{magisk_ver}.json").content)
+            f"https://github.com/topjohnwu/magisk-files/raw/master/{magisk_ver}.json").content)['magisk']['link']
+        magisk_version = json.loads(requests.get(
+            f"https://github.com/topjohnwu/magisk-files/raw/master/{magisk_ver}.json").content)['magisk']['version']
+        
