@@ -42,4 +42,6 @@ if magisk_ver == "stable" or magisk_ver == "beta" or magisk_ver == "canary" or m
     except Exception:
         print("Failed to fetch from GitHub API, fallbacking to jsdelivr...")
         magisk_link = json.loads(requests.get(
-            f"https://fastly.jsdelivr.net/gh/topjohn
+            f"https://fastly.jsdelivr.net/gh/topjohnwu/magisk-files@master/{magisk_ver}.json").content)['magisk']['link']
+        magisk_version = json.loads(requests.get(
+            f"https://fastly.jsdelivr.net/gh/t
