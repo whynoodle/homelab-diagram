@@ -46,4 +46,8 @@ if magisk_ver == "stable" or magisk_ver == "beta" or magisk_ver == "canary" or m
         magisk_version = json.loads(requests.get(
             f"https://fastly.jsdelivr.net/gh/topjohnwu/magisk-files@master/{magisk_ver}.json").content)['magisk']['version']
         with open(os.environ['GITHUB_ENV'], 'a') as environ_file:
-                environ_file.write(f
+                environ_file.write(f'MAGISK_VERSION={magisk_version}\n')
+print(f"download link: {magisk_link}", flush=True)
+
+with open(download_dir/tempScript, 'a') as f:
+    f.writelines(f'{magisk_li
