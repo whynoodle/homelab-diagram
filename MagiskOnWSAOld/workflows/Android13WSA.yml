@@ -1,0 +1,7 @@
+name: Android 13 Build
+on:
+  workflow_dispatch:
+    inputs:
+      arch:
+        type: choice
+   
