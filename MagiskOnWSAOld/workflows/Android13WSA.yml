@@ -35,4 +35,9 @@ on:
       root-sol:
         type: choice
         description: Root solution. none means no root.
-        required:
+        required: true
+        options: ["magisk","none"]
+        default: "magisk"
+#       remove-amazon:
+#         description: Remove Amazon Appstore from the system
+#         requ
