@@ -30,4 +30,9 @@ on:
         type: choice
         description: GApps variant.
         required: true
-        options: ["super","stock","full","mini","micro"
+        options: ["super","stock","full","mini","micro","nano","pico","tvstock","tvmini"]
+        default: "pico"
+      root-sol:
+        type: choice
+        description: Root solution. none means no root.
+        required:
