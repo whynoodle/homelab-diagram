@@ -13,4 +13,11 @@ on:
         description: Release type of WSA. RP means Release Preview, WIS means Insider Slow, WIF means Insider Fas
         required: true
         options: ["retail","RP","WIS","WIF"]
-        de
+        default: "WIF"
+      magisk-ver:
+        type: choice
+        description: Magisk version.
+        required: true
+        options: ["delta"]
+        default: "delta"
+      gapps-bran
