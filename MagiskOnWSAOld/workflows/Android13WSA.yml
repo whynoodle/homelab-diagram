@@ -10,4 +10,7 @@ on:
         default: x64
       release-type:
         type: choice
-        descr
+        description: Release type of WSA. RP means Release Preview, WIS means Insider Slow, WIF means Insider Fas
+        required: true
+        options: ["retail","RP","WIS","WIF"]
+        de
