@@ -20,4 +20,9 @@ on:
         required: true
         options: ["delta"]
         default: "delta"
-      gapps-bran
+      gapps-brand:
+        type: choice
+        description: GApps brand. none for no integration of GApps
+        required: true
+        options: ["OpenGApps","MindTheGapps","none"]
+        d
