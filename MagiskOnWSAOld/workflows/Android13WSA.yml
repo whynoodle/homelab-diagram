@@ -25,4 +25,9 @@ on:
         description: GApps brand. none for no integration of GApps
         required: true
         options: ["OpenGApps","MindTheGapps","none"]
-        d
+        default: "OpenGApps"
+      gapps-variant:
+        type: choice
+        description: GApps variant.
+        required: true
+        options: ["super","stock","full","mini","micro"
