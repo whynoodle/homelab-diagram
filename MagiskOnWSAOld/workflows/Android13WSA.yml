@@ -4,4 +4,10 @@ on:
     inputs:
       arch:
         type: choice
-   
+        description: Architecture of WSA.
+        required: true
+        options: [x64, arm64]
+        default: x64
+      release-type:
+        type: choice
+        descr
