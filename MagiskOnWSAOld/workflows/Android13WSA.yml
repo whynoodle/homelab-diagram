@@ -40,4 +40,11 @@ on:
         default: "magisk"
 #       remove-amazon:
 #         description: Remove Amazon Appstore from the system
-#         requ
+#         required: true
+#         type: boolean 
+#         default: true
+      compress-format:
+        type: choice
+        description: Compress format.
+        required: true
+        op
