@@ -47,4 +47,14 @@ on:
         type: choice
         description: Compress format.
         required: true
-        op
+        options: ["zip","7z","xz"]
+        default: "zip"
+
+jobs:
+  custbuild:
+    name: Build WSA
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout ♻️
+        uses: actions/check
