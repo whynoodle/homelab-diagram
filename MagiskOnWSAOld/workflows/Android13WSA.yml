@@ -57,4 +57,10 @@ jobs:
 
     steps:
       - name: Checkout ♻️
-        uses: actions/check
+        uses: actions/checkout@v3
+
+      - name: Install Dependencies 🧑‍🏭
+        run: |
+          sudo dpkg --add-architecture i386 
+          sudo mkdir -pm755 /etc/apt/keyrings
+      
