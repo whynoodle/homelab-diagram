@@ -68,4 +68,6 @@ jobs:
           sudo apt-get update -y
           sudo apt-get install --install-recommends winehq-staging
           sudo apt-get install -y whiptail setools lzip patchelf e2fsprogs python3-pip aria2 p7zip-full attr xz-utils unzip cabextract
-          sudo wget -P /usr/local/bin/ https://raw.githubusercontent.com/Winetricks/w
+          sudo wget -P /usr/local/bin/ https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
+          sudo chmod +x /usr/local/bin/winetricks
+          wget -P /home/runner/.cache/winetricks/msxml6/ https://raw.githubusercontent.
