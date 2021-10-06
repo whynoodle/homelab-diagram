@@ -72,3 +72,5 @@ jobs:
           sudo chmod +x /usr/local/bin/winetricks
           wget -P /home/runner/.cache/winetricks/msxml6/ https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${GITHUB_REF_NAME}/wine/.cache/winetricks/msxml6/msxml6-KB973686-enu-amd64.exe
           mkdir -p download >/dev/null 2>&1
+          wget -P ./download/ https://download.microsoft.com/download/4/7/c/47c6134b-d61f-4024-83bd-b9c9ea951c25/appx/Microsoft.VCLibs.x64.14.00.Desktop.appx
+      
