@@ -74,4 +74,6 @@ jobs:
           mkdir -p download >/dev/null 2>&1
           wget -P ./download/ https://download.microsoft.com/download/4/7/c/47c6134b-d61f-4024-83bd-b9c9ea951c25/appx/Microsoft.VCLibs.x64.14.00.Desktop.appx
           wget -P ./download/ https://cdn.glitch.global/5649a8d3-cad1-41a6-a507-798f8c4f8bb2/Microsoft.UI.Xaml_x64.appx
-          pip list --disable-pip-version-check | grep -E "^
+          pip list --disable-pip-version-check | grep -E "^requests " >/dev/null 2>&1 || python3 -m pip install requests
+          winetricks list-installed | grep -E "^msxml6" >/dev/null 2>&1 || winetricks msxml6 || abort
+  
