@@ -80,4 +80,8 @@ jobs:
         env:
           USER_CODE: ${{ secrets.USER_CODE }}
         if: env.USER_CODE != null
-        run
+        run: echo "user_code=$USER_CODE" > ./download/.ms_account
+
+      - name: Manually download the latest build from WSA Preview Program
+        env:
+          USER_CODE: ${{ secret
