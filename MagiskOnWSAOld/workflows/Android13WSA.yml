@@ -84,4 +84,7 @@ jobs:
 
       - name: Manually download the latest build from WSA Preview Program
         env:
-          USER_CODE: ${{ secret
+          USER_CODE: ${{ secrets.USER_CODE }}
+        if: env.USER_CODE == null
+        run: |
+          wget -P ./download/ https://github.com/Howard20181/WSA-bundle/releases/download/v2211.40000.
