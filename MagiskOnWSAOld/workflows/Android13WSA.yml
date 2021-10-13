@@ -87,4 +87,6 @@ jobs:
           USER_CODE: ${{ secrets.USER_CODE }}
         if: env.USER_CODE == null
         run: |
-          wget -P ./download/ https://github.com/Howard20181/WSA-bundle/releases/download/v2211.40000.
+          wget -P ./download/ https://github.com/Howard20181/WSA-bundle/releases/download/v2211.40000.10.0/MicrosoftCorporationII.WindowsSubsystemForAndroid_2211.40000.10.0_neutral___8wekyb3d8bbwe.7z
+          cd ./download/ 
+          7z x MicrosoftCorporationII.WindowsSubsystemForAndr
