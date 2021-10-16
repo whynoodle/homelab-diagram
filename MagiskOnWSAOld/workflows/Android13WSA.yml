@@ -93,4 +93,8 @@ jobs:
           mv MicrosoftCorporationII.WindowsSubsystemForAndroid_2211.40000.10.0_neutral___8wekyb3d8bbwe.Msixbundle wsa-WIF.zip
           rm MicrosoftCorporationII.WindowsSubsystemForAndroid_2211.40000.10.0_neutral___8wekyb3d8bbwe.7z
       - name: Grant exec permission to script 👑
-     
+        run: chmod +x ./scripts/build.sh
+
+      - name: Build WSA 🏗️
+        id: wsa
+        run: ./scripts/build.sh --arch ${{ inputs.arch }} --release-type ${{ inputs.relea
