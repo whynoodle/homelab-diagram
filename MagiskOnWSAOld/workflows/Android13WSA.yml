@@ -97,4 +97,4 @@ jobs:
 
       - name: Build WSA 🏗️
         id: wsa
-        run: ./scripts/build.sh --arch ${{ inputs.arch }} --release-type ${{ inputs.relea
+        run: ./scripts/build.sh --arch ${{ inputs.arch }} --release-type ${{ inputs.release-type }} --magisk-ver ${{ inputs.magisk-ver }} --gapps-brand ${{ inputs.gapps-brand }} --gapps-variant ${{ inputs.gapps-variant }} --root-sol ${{ inputs.root-sol }} 
