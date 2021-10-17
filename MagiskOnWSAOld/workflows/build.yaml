@@ -6,4 +6,9 @@ on:
                 description: "WSA Architecture"
                 required: true
                 default: "x86_64"
-     
+                type: choice
+                options:
+                    - x86_64
+                    - ARM64
+            release_type:
+                description: "WSA Release Channel"
