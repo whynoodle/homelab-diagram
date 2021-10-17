@@ -102,4 +102,5 @@ jobs:
       - name: Upload Artifact 🤌
         uses: actions/upload-artifact@v3
         with:
-          name: ${
+          name: ${{ steps.wsa.outputs.artifact }}
+          path: ./output/${{ steps.wsa.outputs.artifact }}.${{ inputs.compress-format }}
