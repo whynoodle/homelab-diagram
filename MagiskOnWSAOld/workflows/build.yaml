@@ -12,3 +12,9 @@ on:
                     - ARM64
             release_type:
                 description: "WSA Release Channel"
+                required: true
+                default: "Dev Channel"
+                type: choice
+                options:
+                    - General Availability Channel
+      
