@@ -21,4 +21,10 @@ on:
                     - Beta Channel
                     - Dev Channel
             magisk_ver:
-                description: "Magisk Ver
+                description: "Magisk Version"
+                required: true
+                default: "Stable"
+                type: choice
+                options:
+                    - None
+                    - Stable
