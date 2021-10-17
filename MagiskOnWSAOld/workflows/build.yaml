@@ -1,3 +1,9 @@
 name: Build MagiskOnWSA
 on:
-    workfl
+    workflow_dispatch:
+        inputs:
+            arch:
+                description: "WSA Architecture"
+                required: true
+                default: "x86_64"
+     
