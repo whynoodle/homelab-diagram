@@ -17,4 +17,8 @@ on:
                 type: choice
                 options:
                     - General Availability Channel
-      
+                    - Release Preview Channel
+                    - Beta Channel
+                    - Dev Channel
+            magisk_ver:
+                description: "Magisk Ver
