@@ -28,3 +28,9 @@ on:
                 options:
                     - None
                     - Stable
+                    - Beta
+                    - Canary
+                    - Debug
+                    - Custom
+            magisk_url:
+                description: "C
