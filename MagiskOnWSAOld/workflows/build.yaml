@@ -33,4 +33,9 @@ on:
                     - Debug
                     - Custom
             magisk_url:
-                description: "C
+                description: "Custom Magisk APK/ZIP URL"
+                required: false
+                type: string
+            gapps_var:
+                description: "GApps Variant"
+  
