@@ -43,4 +43,9 @@ on:
                 type: choice
                 options:
                     - None
-               
+                    - Pico
+                    - Full
+                    - MindTheGapps
+                    - Custom (OpenGApps)
+                    - Custom (MindTheGapps)
+            gap
