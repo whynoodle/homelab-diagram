@@ -53,3 +53,9 @@ on:
                 required: false
                 type: string
             remove_amazon:
+                description: "Remove Amazon AppStore"
+                required: true
+                default: true
+                type: boolean
+            # nofix_props:
+   
