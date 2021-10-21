@@ -38,4 +38,9 @@ on:
                 type: string
             gapps_var:
                 description: "GApps Variant"
-  
+                required: true
+                default: "MindTheGapps"
+                type: choice
+                options:
+                    - None
+               
