@@ -48,4 +48,8 @@ on:
                     - MindTheGapps
                     - Custom (OpenGApps)
                     - Custom (MindTheGapps)
-            gap
+            gapps_url:
+                description: "Custom GApps ZIP URL"
+                required: false
+                type: string
+            remove_amazon:
