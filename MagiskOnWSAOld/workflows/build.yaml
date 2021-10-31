@@ -68,4 +68,8 @@ on:
             #     default: false
             #     type: boolean
             compression:
-        
+                description: "Compression Algorithm"
+                required: true
+                default: "ZIP"
+                type: choice
+                opti
