@@ -62,4 +62,10 @@ on:
             #     required: true
             #     default: false
             #     type: boolean
-            # skip_download_wsa
+            # skip_download_wsa:
+            #     description: Skip WSA Download
+            #     required: true
+            #     default: false
+            #     type: boolean
+            compression:
+        
