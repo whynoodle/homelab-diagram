@@ -72,4 +72,11 @@ on:
                 required: true
                 default: "ZIP"
                 type: choice
-                opti
+                options:
+                    - ZIP
+                    - 7-Zip
+                    - XZ
+            tag:
+                description: "Release Tag Name"
+                required: true
+     
