@@ -102,4 +102,9 @@ jobs:
                   sudo apt update && sudo apt -y install setools lzip wine winetricks patchelf e2fsprogs python3-pip aria2 p7zip-full attr xz-utils unzip
                   python3 -m pip install requests
                   cp -r ../wine/.cache/* ~/.cache
-              
+                  winetricks msxml6
+            - name: Build MagiskOnWSA
+              working-directory: ./scripts
+              run: |
+                  DOWNLOAD_DIR=../download
+                  DO
