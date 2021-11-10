@@ -107,4 +107,7 @@ jobs:
               working-directory: ./scripts
               run: |
                   DOWNLOAD_DIR=../download
-                  DO
+                  DOWNLOAD_CONF_NAME=download.list
+                  mkdir -p "$DOWNLOAD_DIR"
+
+                  declare -A opts=( ["ARCH,x86_64"]="x64" ["ARCH,ARM64"]="arm64" ["RELEASE_TYPE,General Availab
