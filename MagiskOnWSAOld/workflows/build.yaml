@@ -114,4 +114,8 @@ jobs:
 
                   ARCH="${opts[ARCH,${{ inputs.arch }}]}"
 
-                  RELEASE_TYPE="${opts[RELEASE_TYPE,${{ inpu
+                  RELEASE_TYPE="${opts[RELEASE_TYPE,${{ inputs.release_type }}]}"
+
+                  if [[ "${{ inputs.magisk_ver }}" != "None" ]]; then
+                      ROOT_SOL="magisk"
+                      if [[ "${{ inputs.magisk_ve
