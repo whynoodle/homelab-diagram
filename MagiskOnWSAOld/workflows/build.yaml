@@ -118,4 +118,7 @@ jobs:
 
                   if [[ "${{ inputs.magisk_ver }}" != "None" ]]; then
                       ROOT_SOL="magisk"
-                      if [[ "${{ inputs.magisk_ve
+                      if [[ "${{ inputs.magisk_ver }}" != "Custom" ]]; then
+                          MAGISK_VER="${opts[MAGISK_VER,${{ inputs.magisk_ver }}]}"
+                      else
+                      
