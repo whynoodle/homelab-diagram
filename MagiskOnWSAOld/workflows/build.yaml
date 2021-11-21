@@ -121,4 +121,6 @@ jobs:
                       if [[ "${{ inputs.magisk_ver }}" != "Custom" ]]; then
                           MAGISK_VER="${opts[MAGISK_VER,${{ inputs.magisk_ver }}]}"
                       else
-                      
+                          echo -e "${{ inputs.magisk_url }}\n out=magisk-debug.zip" > "$DOWNLOAD_DIR"/"$DOWNLOAD_CONF_NAME"
+
+                          if ! aria2c --no-conf --log-level=info --
