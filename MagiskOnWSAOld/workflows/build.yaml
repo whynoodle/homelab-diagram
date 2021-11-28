@@ -130,4 +130,9 @@ jobs:
                           CUSTOM_MAGISK="${opts[MAGISK_VER,Custom]}"
                           MAGISK_VER="${opts[MAGISK_VER,Debug]}"
                       fi
-          
+                  else
+                      ROOT_SOL="none"
+                      MAGISK_VER="${opts[MAGISK_VER,Stable]}"
+                  fi
+
+                  if [[ 
