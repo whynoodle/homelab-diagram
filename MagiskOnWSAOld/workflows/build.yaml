@@ -135,4 +135,7 @@ jobs:
                       MAGISK_VER="${opts[MAGISK_VER,Stable]}"
                   fi
 
-                  if [[ 
+                  if [[ "${{ inputs.arch }}" == "x86_64" ]]; then
+                      GAPPS_VAR="${opts[GAPPS_VAR,${{ inputs.gapps_var }}]}"
+                  else
+            
