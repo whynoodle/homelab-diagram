@@ -139,4 +139,7 @@ jobs:
                       GAPPS_VAR="${opts[GAPPS_VAR,${{ inputs.gapps_var }}]}"
                   else
                       # TODO: keep it 11.0 since official opengapps does not support 12+ yet
-                      # As soon as opengapps is available for 12+, we need to get the sdk/release from build.prop and dow
+                      # As soon as opengapps is available for 12+, we need to get the sdk/release from build.prop and download the corresponding version
+                      if [[ "${{ inputs.gapps_var }}" != "None" ]]; then
+                          GAPPS_VAR="${opts[GAPPS_VAR,Pico]}"
+ 
