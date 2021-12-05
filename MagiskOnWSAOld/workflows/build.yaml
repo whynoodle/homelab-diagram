@@ -151,4 +151,8 @@ jobs:
                       if [[ "${{ inputs.gapps_var }}" != *"MindTheGapps"* ]]; then
                           GAPPS_BRAND="OpenGApps"
                           if [[ "${{ inputs.gapps_var }}" == "Custom (OpenGApps)" ]]; then
-                              if [[ -z "${${{ inputs.gapps_url }}+x}" ]]; t
+                              if [[ -z "${${{ inputs.gapps_url }}+x}" ]]; then
+                                  GAPPS_VARIANT_MAP=(
+                                      "super"
+                                      "stock"
+                      
