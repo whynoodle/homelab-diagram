@@ -147,4 +147,6 @@ jobs:
                       fi
                   fi
 
-           
+                  if [[ "${{ inputs.gapps_var }}" != "None" ]]; then
+                      if [[ "${{ inputs.gapps_var }}" != *"MindTheGapps"* ]]; then
+                          GAPPS_BRAN
