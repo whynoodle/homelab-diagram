@@ -159,4 +159,9 @@ jobs:
                                       "mini"
                                       "micro"
                                       "nano"
-                              
+                                      "pico"
+                                      "tvstock"
+                                      "tvmini"
+                                  )
+
+                            
