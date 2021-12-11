@@ -155,4 +155,8 @@ jobs:
                                   GAPPS_VARIANT_MAP=(
                                       "super"
                                       "stock"
-                      
+                                      "full"
+                                      "mini"
+                                      "micro"
+                                      "nano"
+                              
