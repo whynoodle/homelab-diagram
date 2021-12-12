@@ -164,4 +164,6 @@ jobs:
                                       "tvmini"
                                   )
 
-                            
+                                  for file in "$DOWNLOAD_DIR"/OpenGApps-"$ARCH"-*.zip; do
+                                      GAPPS_VAR=${file%%\.*}
+                                      GAPPS_VAR=
