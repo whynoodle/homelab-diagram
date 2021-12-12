@@ -168,4 +168,6 @@ jobs:
                                       GAPPS_VAR=${file%%\.*}
                                       GAPPS_VAR=${GAPPS_VAR##*-}
                                       list_count=${#GAPPS_VARIANT_MAP[@]}
-                                      for i in "${GAPPS_VARIANT_MAP[@]
+                                      for i in "${GAPPS_VARIANT_MAP[@]}"; do
+                                          if [[ "$GAPPS_VAR" == "$i" ]]; then
+                                              echo "INFO: GApps Variant: $GAPPS_V
