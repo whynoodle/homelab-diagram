@@ -176,4 +176,7 @@ jobs:
                                           fi
                                           ((list_count--))
                                           if (("$list_count" <= 0)); then
-                                              echo 
+                                              echo "Invalid GApps Variant: $GAPPS_VAR"
+                                          fi
+                                      done
+                                      if [[ "$valid
