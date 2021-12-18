@@ -183,4 +183,6 @@ jobs:
                                           break
                                       fi
                                   done
-     
+                                  if [[ "$valid_gapps_var" != "true" ]]; then
+                                      echo "Missing OpenGApps file!"
+                      
