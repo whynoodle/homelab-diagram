@@ -179,4 +179,8 @@ jobs:
                                               echo "Invalid GApps Variant: $GAPPS_VAR"
                                           fi
                                       done
-                                      if [[ "$valid
+                                      if [[ "$valid_gapps_var" == "true" ]]; then
+                                          break
+                                      fi
+                                  done
+     
