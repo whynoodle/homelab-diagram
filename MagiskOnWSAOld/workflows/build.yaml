@@ -174,4 +174,6 @@ jobs:
                                               valid_gapps_var="true"
                                               break
                                           fi
-                    
+                                          ((list_count--))
+                                          if (("$list_count" <= 0)); then
+                                              echo 
