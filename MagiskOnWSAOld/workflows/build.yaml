@@ -185,4 +185,7 @@ jobs:
                                   done
                                   if [[ "$valid_gapps_var" != "true" ]]; then
                                       echo "Missing OpenGApps file!"
-                      
+                                      exit 1
+                                  fi
+                                  echo "opengapps_var=${GAPPS_VAR^}" >> $GITHUB_ENV
+                 
