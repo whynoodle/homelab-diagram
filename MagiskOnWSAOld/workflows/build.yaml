@@ -188,4 +188,6 @@ jobs:
                                       exit 1
                                   fi
                                   echo "opengapps_var=${GAPPS_VAR^}" >> $GITHUB_ENV
-                 
+                              else
+                                  GAPPS_VAR="pico"
+                                  echo -e "${{ inputs.gapps_url }}\n out=OpenGApps-"$ARCH"-
