@@ -190,4 +190,5 @@ jobs:
                                   echo "opengapps_var=${GAPPS_VAR^}" >> $GITHUB_ENV
                               else
                                   GAPPS_VAR="pico"
-                                  echo -e "${{ inputs.gapps_url }}\n out=OpenGApps-"$ARCH"-
+                                  echo -e "${{ inputs.gapps_url }}\n out=OpenGApps-"$ARCH"-"$GAPPS_VAR".zip" > -i"$DOWNLOAD_DIR"/"$DOWNLOAD_CONF_NAME"
+                                  if ! aria2c --no-conf --log-level=info --log="$DOWNLOAD
