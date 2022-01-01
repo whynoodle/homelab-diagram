@@ -194,4 +194,7 @@ jobs:
                                   if ! aria2c --no-conf --log-level=info --log="$DOWNLOAD_DIR/aria2_gapps_download.log" -x16 -s16 -j5 -c -R -m0 --async-dns=false --check-integrity --continue --allow-overwrite --conditional-get -d"$DOWNLOAD_DIR" -i"$DOWNLOAD_DIR"/"$DOWNLOAD_CONF_NAME"; then
                                       echo "OpenGApps download error!"
                                       exit 1
-        
+                                  fi
+                                  echo "opengapps_var=custom" >> $GITHUB_ENV
+                              fi
+              
