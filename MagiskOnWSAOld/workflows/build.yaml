@@ -201,4 +201,6 @@ jobs:
                       else
                           GAPPS_VAR="pico"
                           GAPPS_BRAND="MindTheGapps"
-                          if [[ "${{ input
+                          if [[ "${{ inputs.gapps_var }}" == "Custom (MindTheGapps)" ]]; then
+                              if [[ -n "${${{ inputs.gapps_url }}+x}" ]]; then
+                                  echo -e "${{ inputs.g
