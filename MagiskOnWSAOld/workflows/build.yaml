@@ -203,4 +203,6 @@ jobs:
                           GAPPS_BRAND="MindTheGapps"
                           if [[ "${{ inputs.gapps_var }}" == "Custom (MindTheGapps)" ]]; then
                               if [[ -n "${${{ inputs.gapps_url }}+x}" ]]; then
-                                  echo -e "${{ inputs.g
+                                  echo -e "${{ inputs.gapps_url }}\n out=MindTheGapps-"$ARCH".zip" > -i"$DOWNLOAD_DIR"/"$DOWNLOAD_CONF_NAME"
+
+                                  if ! aria2c --no-conf --log-level=info --log="$DOWNLOAD_DIR/a
