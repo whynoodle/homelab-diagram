@@ -197,4 +197,8 @@ jobs:
                                   fi
                                   echo "opengapps_var=custom" >> $GITHUB_ENV
                               fi
-              
+                          fi
+                      else
+                          GAPPS_VAR="pico"
+                          GAPPS_BRAND="MindTheGapps"
+                          if [[ "${{ input
