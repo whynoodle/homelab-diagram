@@ -214,3 +214,9 @@ jobs:
                       fi
                   else
                       GAPPS_VAR="pico"
+                      GAPPS_BRAND="none"
+                  fi
+
+                  REMOVE_AMAZON="${opts[REMOVE_AMAZON,${{ inputs.remove_amazon }}]}"
+
+                  NOFIX_PROPS
