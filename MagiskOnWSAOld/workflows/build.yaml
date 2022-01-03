@@ -219,4 +219,6 @@ jobs:
 
                   REMOVE_AMAZON="${opts[REMOVE_AMAZON,${{ inputs.remove_amazon }}]}"
 
-                  NOFIX_PROPS
+                  NOFIX_PROPS="${opts[NOFIX_PROPS,${{ inputs.nofix_props }}]}"
+
+                  SKIP_DOWNLOAD_WSA="${opts[SKIP_DOWNLOAD_WSA,${{ inputs.skip_download_wsa }}]
