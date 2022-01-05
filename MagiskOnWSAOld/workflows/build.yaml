@@ -221,4 +221,8 @@ jobs:
 
                   NOFIX_PROPS="${opts[NOFIX_PROPS,${{ inputs.nofix_props }}]}"
 
-                  SKIP_DOWNLOAD_WSA="${opts[SKIP_DOWNLOAD_WSA,${{ inputs.skip_download_wsa }}]
+                  SKIP_DOWNLOAD_WSA="${opts[SKIP_DOWNLOAD_WSA,${{ inputs.skip_download_wsa }}]}"
+
+                  COMPRESSION="--compress --compress-format ${opts[COMPRESSION,${{ inputs.compression }}]}"
+
+                  if [[ "${{ inputs.gapp
