@@ -227,4 +227,6 @@ jobs:
 
                   if [[ "${{ inputs.gapps_var }}" == "Custom"* ]]; then
                       echo "Generate Download Links"
-                      python3 generateWSALinks.py "$ARCH" "$RELEASE_TYPE" "$DOWNLOAD_DIR" "
+                      python3 generateWSALinks.py "$ARCH" "$RELEASE_TYPE" "$DOWNLOAD_DIR" "$DOWNLOAD_CONF_NAME"
+                      if [[ "${{ inputs.magisk_ver }}" != "Custom" ]]; then
+                          python3 generateMagiskLink.py "$MAGISK_VER" "
