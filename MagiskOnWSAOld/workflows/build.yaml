@@ -233,4 +233,4 @@ jobs:
                       fi
 
                       echo "Download Artifacts"
-                      if ! aria2c --no-conf --log-level=inf
+                      if ! aria2c --no-conf --log-level=info --log="$DOWNLOAD_DIR/aria2_download.log" -x16 -s16 -j5 -c -R -m0 --async-dns=false --check-integrity --continue --allow-overwrite --conditional-get -d"$DOWNLOAD_DIR" -i"$DO
