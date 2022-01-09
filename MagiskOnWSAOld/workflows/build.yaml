@@ -237,4 +237,7 @@ jobs:
                           echo "Artifact download error!"
                           exit 1
                       fi
-                      
+                      OFFLINE="--offline"
+                  fi
+
+                  COMMAND_LINE=(--arch "$ARCH" --release-type "$RELEASE_TYPE" --root-sol "$ROOT_SOL" --magisk-ver "$MAGISK_VER" "$CUSTOM_MAGISK
