@@ -229,4 +229,8 @@ jobs:
                       echo "Generate Download Links"
                       python3 generateWSALinks.py "$ARCH" "$RELEASE_TYPE" "$DOWNLOAD_DIR" "$DOWNLOAD_CONF_NAME"
                       if [[ "${{ inputs.magisk_ver }}" != "Custom" ]]; then
-                          python3 generateMagiskLink.py "$MAGISK_VER" "
+                          python3 generateMagiskLink.py "$MAGISK_VER" "$DOWNLOAD_DIR" "$DOWNLOAD_CONF_NAME"
+                      fi
+
+                      echo "Download Artifacts"
+                      if ! aria2c --no-conf --log-level=inf
