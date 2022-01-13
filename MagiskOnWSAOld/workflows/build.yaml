@@ -241,4 +241,9 @@ jobs:
                   fi
 
                   COMMAND_LINE=(--arch "$ARCH" --release-type "$RELEASE_TYPE" --root-sol "$ROOT_SOL" --magisk-ver "$MAGISK_VER" "$CUSTOM_MAGISK" --gapps-brand "$GAPPS_BRAND" --gapps-variant "$GAPPS_VAR" "$COMPRESSION" "$REMOVE_AMAZON" "$NOFIX_PROPS" "$SKIP_DOWNLOAD_WSA" "$OFFLINE")
-                  echo "COMMA
+                  echo "COMMAND_LINE=${COMMAND_LINE[*]}"
+
+                  chmod +x ./build.sh
+                  ./build.sh $(echo "${COMMAND_LINE[@]}")
+            - name: Generate Release Asset Name
+       
