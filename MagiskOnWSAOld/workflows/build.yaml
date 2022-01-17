@@ -249,3 +249,8 @@ jobs:
               working-directory: ./output
               run: |
                   declare -A magisk_vers=( ["Stable"]="stable" ["Beta"]="beta" ["Canary"]="canary" ["Debug"]="debug" )
+
+                  if [[ "${{ inputs.magisk_ver }}" == "None" ]]; then
+                      magiskVer=""
+                  elif [[ "${{ inputs.magisk_ver }}" == "Custom" ]]; then
+  
