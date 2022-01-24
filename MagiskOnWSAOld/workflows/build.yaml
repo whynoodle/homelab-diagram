@@ -256,4 +256,9 @@ jobs:
                       magiskVer="_Magisk-Custom"
                   else
                       magiskVer="_Magisk-${{ env.MAGISK_VERSION }}"
-                  f
+                  fi
+                  export magiskVer
+
+                  if [[ "${{ inputs.gapps_var }}" == "None" ]]; then
+                      gappsVar=""
+ 
