@@ -253,4 +253,7 @@ jobs:
                   if [[ "${{ inputs.magisk_ver }}" == "None" ]]; then
                       magiskVer=""
                   elif [[ "${{ inputs.magisk_ver }}" == "Custom" ]]; then
-  
+                      magiskVer="_Magisk-Custom"
+                  else
+                      magiskVer="_Magisk-${{ env.MAGISK_VERSION }}"
+                  f
