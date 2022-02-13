@@ -263,4 +263,7 @@ jobs:
                       gappsVar=""
                   elif [[ "${{ inputs.gapps_var }}" == *"MindTheGapps"* ]]; then
                       gappsVar="_MindTheGapps"
-                  elif [[ "${{ inputs.gapps_var }}" == "Cus
+                  elif [[ "${{ inputs.gapps_var }}" == "Custom (OpenGApps)" ]]; then
+                      gappsVar="_OpenGApps-${{ env.opengapps_var }}"
+                  else
+                      gappsVar="_OpenGApps-${{ in
