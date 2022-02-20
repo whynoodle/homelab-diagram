@@ -272,4 +272,9 @@ jobs:
 
                   if [[ "${{ inputs.remove_amazon }}" == "true" ]]; then
                       amazon=""
-      
+                  else
+                      amazon="_Amazon-AppStore"
+                  fi
+                  export amazon
+
+                  echo "release_asset_
