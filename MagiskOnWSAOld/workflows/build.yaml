@@ -277,4 +277,5 @@ jobs:
                   fi
                   export amazon
 
-                  echo "release_asset_
+                  echo "release_asset_name=WSA_${{ env.WSA_VER }}_${{ inputs.arch }}$magiskVer$gappsVar${amazon}" >> $GITHUB_ENV
+                  find . -maxdepth 1 -type f -name 'WSA.*' -exec bash -c 'mv "$1" "WSA_${
