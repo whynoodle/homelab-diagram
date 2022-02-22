@@ -281,3 +281,8 @@ jobs:
                   find . -maxdepth 1 -type f -name 'WSA.*' -exec bash -c 'mv "$1" "WSA_${{ env.WSA_VER }}_${{ inputs.arch }}${magiskVer}${gappsVar}${amazon}${1##*WSA}"' _ {} \;
             - name: Upload Asset
               uses: softprops/action-gh-release@v1
+              with:
+                  files: ./output/${{ env.release_asset_name }}.*
+                  name: WSA
+                  tag_name: ${{ inputs.tag }}
+         
