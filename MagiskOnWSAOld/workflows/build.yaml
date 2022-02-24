@@ -285,4 +285,4 @@ jobs:
                   files: ./output/${{ env.release_asset_name }}.*
                   name: WSA
                   tag_name: ${{ inputs.tag }}
-         
+                  prerelease: ${{ inputs.prerelease }}
