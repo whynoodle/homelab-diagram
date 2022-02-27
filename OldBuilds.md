@@ -6,4 +6,4 @@
 
 [![](https://img.shields.io/badge/Windows%20Subsystem%20For%20Android%3A%202301.40000.4.0-Download%20x64-blueviolet?style=for-the-badge&logo=windows11)](https://github.com/MustardChef/WSABuilds/releases/tag/Windows_11_2301.40000.4.0)
 
-[![](https://img.shields.io/badge/Windows%20Sub
+[![](https://img.shields.io/badge/Windows%20Subsystem%20For%20Android%3A%202301.40000.4.0-Download%20arm64-blueviolet?style=for-the-badge&logo=windows11)](https://github.com/MustardChef/WSABuilds/releases/tag/Wi
