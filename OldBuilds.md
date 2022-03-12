@@ -16,4 +16,6 @@
 
 &nbsp;
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Windows_10_Logo.
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Windows_10_Logo.svg" style="width: 200px;"/>
+
+[![](https://img.shields.io/badge/Windows%20Subsystem%20For%20Android%3A%202301.40000.4.0-Download%20x64%20-9cf?
