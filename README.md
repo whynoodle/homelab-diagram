@@ -7,4 +7,5 @@
 
 | :exclamation: **Important:**  &nbsp;  `⚠️DO NOT FORK⚠️`               |
 |------------------------------------------------------------------------|
-|**This repository is designed specifically not to be forked. MagiskOnWSA and some of the various forks and clones that have sprung up on the platform (***potentially***) vio
+|**This repository is designed specifically not to be forked. MagiskOnWSA and some of the various forks and clones that have sprung up on the platform (***potentially***) violate GitHub's Terms of Service due to abuse of GitHub Actions and have been ultimately warned, disabled or banned.**| 
+|**We would like to say one thing: We respect the Te
