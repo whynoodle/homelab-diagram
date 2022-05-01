@@ -20,4 +20,5 @@
    
 > **Warning** 
 > ### :exclamation: **Important:**
->  ### Prebuilt Windows Subsystem For Android™ Builds for Windows™ 11 in [Releases](https://github.com/MustardChef/WSABuild
+>  ### Prebuilt Windows Subsystem For Android™ Builds for Windows™ 11 in [Releases](https://github.com/MustardChef/WSABuilds/releases) HAVE NOT been modified in anyway prior and subsequent to running the MagiskOnWSA script and upload to Github. 
+> ### Prebuilt Windows Subsystem For Androi
