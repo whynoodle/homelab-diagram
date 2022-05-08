@@ -25,4 +25,9 @@
 
 > ### I will move to a more transparent method of building MagiskOnWSA builds soon, due to the overarching concerns with safety, transparancy and build integrity
 
-> #### The same level of scrutiny should be applied with the Windows Subsystem For Android™ builds as with a
+> #### The same level of scrutiny should be applied with the Windows Subsystem For Android™ builds as with any other program that you download from the internet
+</details>
+      
+ <details>     
+   <summary><h3> &nbsp; ❓Want to build your own custom build❓ <h3></summary>
+  
