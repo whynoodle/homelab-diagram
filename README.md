@@ -38,4 +38,4 @@
 |**If you want to create your Custom Build, please follow the instructions set out clearly, to avoid the repo from being taken down as a result of a misuse of Github Actions due to the large number of forks.**|
       
 ---
-#### **1. Check the versio
+#### **1. Check the version from [Releases](https://github.com/MustardChef/WSABuilds/releases) first. If it does not have the version you want, continue to follow this guide. If it does, then feel 
