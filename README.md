@@ -43,4 +43,8 @@
 #### **2. Log into your Github Account (this is necessary) and in the home page, click on the button (shown below) and select "import a repository" or go to [this page directly](https://github.com/new/import)**
    ***Step 1:***
    
-   <img src="https://user-images.githubusercontent.com/68516357/221636520-78d0716a-
+   <img src="https://user-images.githubusercontent.com/68516357/221636520-78d0716a-247b-4034-aa9d-bdbe2277950c.png" style="width: 350px;"/>
+   
+   ***Step 2:***
+   
+   ![image](https://user-images.githubusercontent.com/68516357/221641202-e3ef4deb-f2dd-46e
