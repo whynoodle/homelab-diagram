@@ -55,4 +55,6 @@
 ![image](https://user-images.githubusercontent.com/68516357/221643582-72d71f68-8f53-48d9-a940-692a54d42098.png)
 
 ---
-#### **4. Go to the **Setting** tab in your newly imported re
+#### **4. Go to the **Setting** tab in your newly imported repo and enable "Github Actions"**
+
+![Settings](https://user-images.githubusercontent.com/68516357/222214308-b52b1c6f-a60b-44ef-9ce0-bc335087e3a2.png)
