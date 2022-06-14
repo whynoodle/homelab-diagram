@@ -61,4 +61,6 @@
 ![MRq9WD3SO2](https://user-images.githubusercontent.com/68516357/222215598-30d68ad3-9700-4061-bba4-815b3befcb10.png)
 
 ---
-#### **5. Then, scroll down until you reach the section title
+#### **5. Then, scroll down until you reach the section titled "Workflow Permission" and follow the steps as shown in the image below**
+
+![image](https://user-images.githubusercontent.com/68516357/224546417-a82
