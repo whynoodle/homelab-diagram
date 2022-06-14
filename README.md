@@ -63,4 +63,10 @@
 ---
 #### **5. Then, scroll down until you reach the section titled "Workflow Permission" and follow the steps as shown in the image below**
 
-![image](https://user-images.githubusercontent.com/68516357/224546417-a82
+![image](https://user-images.githubusercontent.com/68516357/224546417-a82249b4-3864-42bd-8a29-32350b8b0c97.png)
+
+
+---
+#### **6. Now, Go to the **Action** tab**
+
+![CvYhP0B0CI](https://user-images.githubusercontent.com/68516357/222221960-f48ab9c3-eb77-4cb
