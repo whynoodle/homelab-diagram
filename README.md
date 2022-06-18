@@ -69,4 +69,10 @@
 ---
 #### **6. Now, Go to the **Action** tab**
 
-![CvYhP0B0CI](https://user-images.githubusercontent.com/68516357/222221960-f48ab9c3-eb77-4cb
+![CvYhP0B0CI](https://user-images.githubusercontent.com/68516357/222221960-f48ab9c3-eb77-4cb0-b932-5cd343381048.png)
+
+    
+---
+#### **7. In the left sidebar, click the **Custom Build** workflow.**
+    
+![image](https://user-images.githubusercontent.com/68
