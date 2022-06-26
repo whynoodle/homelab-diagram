@@ -85,4 +85,7 @@
 ---
 #### **9. Select your desired options such as ***Magisk Version***, ***WSA Release Channel + WSA Archetecture*** , ***GApps Varient*** and ***Compression Format*** then click **Run workflow****
     
-![image](https:/
+![image](https://user-images.githubusercontent.com/68516357/222224185-abcfa0cf-c8c6-46e3-bc38-871c968b86f2.png)
+    
+---    
+#### **10. Wait for the action to complete and downl
