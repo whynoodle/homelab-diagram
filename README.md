@@ -88,4 +88,8 @@
 ![image](https://user-images.githubusercontent.com/68516357/222224185-abcfa0cf-c8c6-46e3-bc38-871c968b86f2.png)
     
 ---    
-#### **10. Wait for the action to complete and downl
+#### **10. Wait for the action to complete and download the artifact**
+
+**DO NOT download it via multithread downloaders like IDM**
+
+![image](https://user-images.githubusercontent.com/68516357/222224469-5748b78a-158e-4
