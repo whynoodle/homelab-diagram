@@ -110,4 +110,4 @@
    <summary><h3> &nbsp; ❓Want to request a prebuilt custom build❓ <h3></summary>
    
 > **Note**
-> <br /> To request: <br /> - A 
+> <br /> To request: <br /> - A newer build <br /> - A build with a different version of GApps (Google Play Services) or Magisk (root) <br /> - A build without Magisk (root) or GApps (Google Play Se
