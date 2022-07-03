@@ -92,4 +92,12 @@
 
 **DO NOT download it via multithread downloaders like IDM**
 
-![image](https://user-images.githubusercontent.com/68516357/222224469-5748b78a-158e-4
+![image](https://user-images.githubusercontent.com/68516357/222224469-5748b78a-158e-46ff-9f65-317dbb519aac.png)
+
+---
+#### **11. Install like normal using the instructions in this repository** and most important of all....
+
+<br/>
+
+### **Enjoy!**
+ 
