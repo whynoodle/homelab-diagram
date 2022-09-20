@@ -139,4 +139,9 @@
 &nbsp;
 
 <details>     
-   <summary><img style="float: right;" src="https://img.icons8.com/color/96/null/sof
+   <summary><img style="float: right;" src="https://img.icons8.com/color/96/null/software-installer.png" width="60" height="60"/><h1> &nbsp; Installation<h1></summary>
+
+&nbsp;
+
+> **Note** : 
+> If you have the official Windows Subsystem For Android™ instal
