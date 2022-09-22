@@ -144,4 +144,6 @@
 &nbsp;
 
 > **Note** : 
-> If you have the official Windows Subsystem For Android™ instal
+> If you have the official Windows Subsystem For Android™ installed, you must [completely uninstall](#uninstallation) it to use MagiskOnWSA. 
+
+> In case you want to preserve your data from the previous installation (offici
