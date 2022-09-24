@@ -152,4 +152,7 @@
 2. In the latest release, go to the Assets section and download the Windows Subsystem For Android™ version of your choosing (do not download "Source code")
 3. Extract the zip file
 4. Delete the zip file
-5. Move the newly extrac
+5. Move the newly extracted folder to a suitable location (Documents folder is a good choice), as you will need to keep the folder on your PC to use MagiskOnWSA
+
+> **Note** :  
+> If you're updating WSA, merge the
