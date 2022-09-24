@@ -149,4 +149,7 @@
 > In case you want to preserve your data from the previous installation (official or MagiskOnWSA), you can backup %LOCALAPPDATA%\Packages\MicrosoftCorporationII.WindowsSubsystemForAndroid_8wekyb3d8bbwe\LocalCache\userdata.vhdx before uninstallation and restore it after installation.
 
 1. Go to the [Releases page](https://github.com/MustardChef/WSABuilds/releases/latest)
-2. In the latest release, go to the Assets section a
+2. In the latest release, go to the Assets section and download the Windows Subsystem For Android™ version of your choosing (do not download "Source code")
+3. Extract the zip file
+4. Delete the zip file
+5. Move the newly extrac
