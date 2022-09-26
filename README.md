@@ -155,4 +155,7 @@
 5. Move the newly extracted folder to a suitable location (Documents folder is a good choice), as you will need to keep the folder on your PC to use MagiskOnWSA
 
 > **Note** :  
-> If you're updating WSA, merge the
+> If you're updating WSA, merge the folders and replace the files for all items when asked
+
+6. Open the Windows Subsystem For Android™ folder: Search for and double-click `Run.bat`
+   - If you previously have a Mag
