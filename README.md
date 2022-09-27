@@ -158,4 +158,5 @@
 > If you're updating WSA, merge the folders and replace the files for all items when asked
 
 6. Open the Windows Subsystem For Android™ folder: Search for and double-click `Run.bat`
-   - If you previously have a Mag
+   - If you previously have a MagiskOnWSA installation, it will automatically uninstall the previous one while preserving all user data and install the new one, so don't worry about your data.
+   - If th
