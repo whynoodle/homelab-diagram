@@ -159,4 +159,4 @@
 
 6. Open the Windows Subsystem For Android™ folder: Search for and double-click `Run.bat`
    - If you previously have a MagiskOnWSA installation, it will automatically uninstall the previous one while preserving all user data and install the new one, so don't worry about your data.
-   - If th
+   - If the popup windows disappear without asking administrative permission and Windows Subsystem For Android™ is not installed successfully, you should manually run Install.ps1 as admi
