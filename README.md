@@ -163,4 +163,9 @@
       
       - Press Win+x and select Windows™ Terminal (Admin)
       
-      - Input the command below and press enter, replacing {X:\path\to\your\ext
+      - Input the command below and press enter, replacing {X:\path\to\your\extracted\folder} including the {} with the path of the extracted folder
+        ```Powershell
+        cd "{X:\path\to\your\extracted\folder}"
+        ```  
+        
+    
