@@ -168,4 +168,9 @@
         cd "{X:\path\to\your\extracted\folder}"
         ```  
         
-    
+      - Input the command below and press enter   
+        ```Powershell
+        PowerShell.exe -ExecutionPolicy Bypass -File .\Install.ps1
+        ```
+        
+      - The script wi
