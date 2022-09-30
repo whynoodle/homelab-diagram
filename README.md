@@ -173,4 +173,7 @@
         PowerShell.exe -ExecutionPolicy Bypass -File .\Install.ps1
         ```
         
-      - The script wi
+      - The script will run and Windows Subsystem For Android™ will be installed
+      - If this workaround does not work, your PC is not supported for WSA
+      
+7. Once the 
