@@ -176,4 +176,4 @@
       - The script will run and Windows Subsystem For Android™ will be installed
       - If this workaround does not work, your PC is not supported for WSA
       
-7. Once the 
+7. Once the installation process completes, Windows Subsystem For Android™ will launch (if this is a first-time install, a window asking for consent to diagnositic information will be
