@@ -185,4 +185,5 @@
 
 ### Notice (Applicable for both Windows 10 and 11):
 
-1. You can NOT dele
+1. You can NOT delete the Windows Subsystem For Android™ installation folder.
+   What `Add-AppxPackage -Register .\AppxManifest.xml` does is to register an appx package with some existing unp
