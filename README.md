@@ -177,4 +177,12 @@
       - If this workaround does not work, your PC is not supported for WSA
       
 7. Once the installation process completes, Windows Subsystem For Android™ will launch (if this is a first-time install, a window asking for consent to diagnositic information will be shown instead. Sometimes two identical windows will show, this is fine and nothing bad happens if you click OK in both windows)
-8. Click on the PowerShell window, then p
+8. Click on the PowerShell window, then press any key on the keyboard, the PowerShell window should close
+9. Close File Explorer
+10. **Enjoy**
+
+&nbsp;
+
+### Notice (Applicable for both Windows 10 and 11):
+
+1. You can NOT dele
