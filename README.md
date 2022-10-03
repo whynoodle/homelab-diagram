@@ -189,4 +189,5 @@
    What `Add-AppxPackage -Register .\AppxManifest.xml` does is to register an appx package with some existing unpackaged files,
    so you need to keep them as long as you want to use Windows Subsystem For Android™. 
    Check https://learn.microsoft.com/en-us/powershell/module/appx/add-appxpackage?view=windowsserver2022-ps for more details.
-2. You need to register your Windows Subsystem For Android™ appx package before you can run Windows Subsystem For Androi
+2. You need to register your Windows Subsystem For Android™ appx package before you can run Windows Subsystem For Android™. 
+   For [WSABuilds](https://github.com/MustardChef/WSABuilds) and [MagiskOnWSALocal](https://github.com/LSPosed/MagiskOnWSALocal) users, you need to run `Run.b
