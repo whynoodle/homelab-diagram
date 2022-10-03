@@ -186,4 +186,6 @@
 ### Notice (Applicable for both Windows 10 and 11):
 
 1. You can NOT delete the Windows Subsystem For Android™ installation folder.
-   What `Add-AppxPackage -Register .\AppxManifest.xml` does is to register an appx package with some existing unp
+   What `Add-AppxPackage -Register .\AppxManifest.xml` does is to register an appx package with some existing unpackaged files,
+   so you need to keep them as long as you want to use Windows Subsystem For Android™. 
+   Check https://learn.microsoft.com/en-us/powershell/module/appx/add-app
