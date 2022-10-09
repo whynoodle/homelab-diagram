@@ -192,4 +192,6 @@
 2. You need to register your Windows Subsystem For Android™ appx package before you can run Windows Subsystem For Android™. 
    For [WSABuilds](https://github.com/MustardChef/WSABuilds) and [MagiskOnWSALocal](https://github.com/LSPosed/MagiskOnWSALocal) users, you need to run `Run.bat` in the extracted dir.
    If the script fails, you can take the following steps for diagnosis (admin privilege required):
-    1. Open a PowerShell window and 
+    1. Open a PowerShell window and change working directory to your Windows Subsystem For Android™ directory.
+    
+    2. Run the command below in PowerShell. This should fail with an ActivityID, which is a UUID required 
