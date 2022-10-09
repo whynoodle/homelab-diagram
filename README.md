@@ -190,4 +190,6 @@
    so you need to keep them as long as you want to use Windows Subsystem For Android™. 
    Check https://learn.microsoft.com/en-us/powershell/module/appx/add-appxpackage?view=windowsserver2022-ps for more details.
 2. You need to register your Windows Subsystem For Android™ appx package before you can run Windows Subsystem For Android™. 
-   For [WSABuilds](https://github.com/MustardChef/WSABuilds) and [MagiskOnWSALocal](https://github.com/LSPosed/MagiskOnWSALocal) users, you need to run `Run.b
+   For [WSABuilds](https://github.com/MustardChef/WSABuilds) and [MagiskOnWSALocal](https://github.com/LSPosed/MagiskOnWSALocal) users, you need to run `Run.bat` in the extracted dir.
+   If the script fails, you can take the following steps for diagnosis (admin privilege required):
+    1. Open a PowerShell window and 
