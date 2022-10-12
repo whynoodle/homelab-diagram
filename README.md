@@ -202,4 +202,13 @@
     3. Run the command below in PowerShell. This should print the log of the failed operation.
        ```Powershell
        Get-AppPackageLog -ActivityID <UUID>
-       `
+       ```
+    4. Check the log for the reason of failure and fix it.
+
+</details> 
+
+&nbsp;
+
+
+<details>     
+   <summary><img style="float: right;" src="https://img.icons8.com/external-
