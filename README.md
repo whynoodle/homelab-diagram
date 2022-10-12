@@ -194,4 +194,9 @@
    If the script fails, you can take the following steps for diagnosis (admin privilege required):
     1. Open a PowerShell window and change working directory to your Windows Subsystem For Android™ directory.
     
-    2. Run the command below in PowerShell. This should fail with an ActivityID, which is a UUID required 
+    2. Run the command below in PowerShell. This should fail with an ActivityID, which is a UUID required for the next step.
+       ```Powershell
+       Add-AppxPackage -ForceApplicationShutdown -ForceUpdateFromAnyVersion -Register .\AppxManifest.xml
+       ```
+       
+    3.
