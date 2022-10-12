@@ -199,4 +199,7 @@
        Add-AppxPackage -ForceApplicationShutdown -ForceUpdateFromAnyVersion -Register .\AppxManifest.xml
        ```
        
-    3.
+    3. Run the command below in PowerShell. This should print the log of the failed operation.
+       ```Powershell
+       Get-AppPackageLog -ActivityID <UUID>
+       `
