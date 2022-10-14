@@ -213,4 +213,6 @@
 <details>     
    <summary><img style="float: right;" src="https://img.icons8.com/external-flaticons-flat-flat-icons/64/null/external-updating-tools-and-material-ecommerce-flaticons-flat-flat-icons.png" width="60" height="60"/><h1> &nbsp; Updating<h1></summary>
 
-### How do I
+### How do I update without losing any of my apps and data on Windows Subsystem for Android (WSA)
+
+1. [Download the latest build](https://github.com/MustardChef/WSABuilds#downloads) (that you w
