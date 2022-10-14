@@ -215,4 +215,6 @@
 
 ### How do I update without losing any of my apps and data on Windows Subsystem for Android (WSA)
 
-1. [Download the latest build](https://github.com/MustardChef/WSABuilds#downloads) (that you w
+1. [Download the latest build](https://github.com/MustardChef/WSABuilds#downloads) (that you want to update to)
+2. Make sure Windows Subsystem For Android is not running (Click on "Turn off" in the WSA Settings and wait for the spinning loader to disappear)
+2. Using 7-Zip, 
