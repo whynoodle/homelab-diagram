@@ -218,4 +218,5 @@
 1. [Download the latest build](https://github.com/MustardChef/WSABuilds#downloads) (that you want to update to)
 2. Make sure Windows Subsystem For Android is not running (Click on "Turn off" in the WSA Settings and wait for the spinning loader to disappear)
 2. Using 7-Zip, WinRAR or any other tool of choice, open the .zip file 
-3. Within the .zip archive open the subfolder (Example: WSA_2xxx.xxxxx.xx.x_xx_Release-Nightly-with-magisk-xxxxxxx-MindTheG
+3. Within the .zip archive open the subfolder (Example: WSA_2xxx.xxxxx.xx.x_xx_Release-Nightly-with-magisk-xxxxxxx-MindTheGapps-xx.x-RemovedAmazon)
+4. Select all the files that are within this subfolder and extract them to the current folder where the file for Windows Subsystem
