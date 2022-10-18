@@ -220,4 +220,7 @@
 2. Using 7-Zip, WinRAR or any other tool of choice, open the .zip file 
 3. Within the .zip archive open the subfolder (Example: WSA_2xxx.xxxxx.xx.x_xx_Release-Nightly-with-magisk-xxxxxxx-MindTheGapps-xx.x-RemovedAmazon)
 4. Select all the files that are within this subfolder and extract them to the current folder where the file for Windows Subsystem For Android are (the folder you extracted, and installed WSA from)
-5. When prompted to replace folders, select "Do this for all current items" and cli
+5. When prompted to replace folders, select "Do this for all current items" and click on "Yes" 
+6. When prompted to replace files, click on "Replace the files in the destination"
+7. Run  the ``Run.bat`` file
+8. Launch Windows Subsystem
