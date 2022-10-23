@@ -223,4 +223,5 @@
 5. When prompted to replace folders, select "Do this for all current items" and click on "Yes" 
 6. When prompted to replace files, click on "Replace the files in the destination"
 7. Run  the ``Run.bat`` file
-8. Launch Windows Subsystem
+8. Launch Windows Subsystem For Android Settings app and go to the ``About`` tab using the sidebar
+9. Check if the WSA version matches the latest version/ the version number that you want to upd
