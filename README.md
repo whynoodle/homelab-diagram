@@ -234,4 +234,8 @@
 &nbsp;
 
 <details>     
-   <summary><img style="float: right;" src="https:/
+   <summary><img style="float: right;" src="https://img.icons8.com/color/96/null/uninstall-programs.png" width="60" height="60"/><h1> &nbsp; Uninstallation<h1></summary>
+
+&nbsp;
+
+### New CLI and GUI Uninstall Tool Coming 
