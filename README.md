@@ -251,4 +251,8 @@
    - **3.)** Delete the WSA folder that extracted you extracted and Run.bat was run from to install WSA (MagiskOnWSA folder)
    - **4.)** Go to ``%LOCALAPPDATA%/Packages/`` and delete the folder named ``MicrosoftCorporationII.WindowsSubsystemForAndroid_8wekyb3d8bbwe``
             
-      - If you get an error that states that the fil
+      - If you get an error that states that the file(s) could not be deleted, make sure that WSA is turned off
+     
+- To remove WSA installed from the Microsoft Store: 
+        
+   - **1.)** Search for ``Windows
