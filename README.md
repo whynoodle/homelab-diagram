@@ -255,4 +255,11 @@
      
 - To remove WSA installed from the Microsoft Store: 
         
-   - **1.)** Search for ``Windows
+   - **1.)** Search for ``Windows Subsystem For Android™ Settings`` using the built-in Windows Search, or through Add and Remove Programs and press uninstall
+
+</details>
+
+&nbsp;
+
+<details>     
+   <summary>
