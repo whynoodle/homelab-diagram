@@ -262,4 +262,7 @@
 &nbsp;
 
 <details>     
-   <summary>
+   <summary><img style="float: right;" src="https://img.icons8.com/3d-fluency/94/null/help.png" width="60" height="60"/><h1> &nbsp; FAQ<h1></summary>
+
+&nbsp;
+**Help me, I am having 
