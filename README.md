@@ -267,4 +267,8 @@
 &nbsp;
 **Help me, I am having problems with the MagiskOnWSA Builds**
 
-- Open an [issue in Github](https://github.com/MustardChef/WSABuilds/issues) or [join the Discord](https://github.com/MustardChef/WSABuilds#join-
+- Open an [issue in Github](https://github.com/MustardChef/WSABuilds/issues) or [join the Discord](https://github.com/MustardChef/WSABuilds#join-the-discord) and describe the issue with sufficent detail
+
+**Help me, I am having problems with installing Windows Subsystem For Android™ on Windows™ 10**
+
+- I am not work
