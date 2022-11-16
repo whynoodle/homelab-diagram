@@ -271,4 +271,4 @@
 
 **Help me, I am having problems with installing Windows Subsystem For Android™ on Windows™ 10**
 
-- I am not work
+- I am not working on the patch, and nor claim to.  Open an issue in the Discord or Github, and I will try to assist you with the problem if possible. For ful
