@@ -271,4 +271,9 @@
 
 **Help me, I am having problems with installing Windows Subsystem For Android™ on Windows™ 10**
 
-- I am not working on the patch, and nor claim to.  Open an issue in the Discord or Github, and I will try to assist you with the problem if possible. For ful
+- I am not working on the patch, and nor claim to.  Open an issue in the Discord or Github, and I will try to assist you with the problem if possible. For full support visit the project homepage and open an issue there: https://github.com/cinit/WSAPatch/issues/
+
+**How do I get a logcat?**
+- There are two ways:
+   ```
+   adb
