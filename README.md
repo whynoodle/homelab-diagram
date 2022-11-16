@@ -265,4 +265,6 @@
    <summary><img style="float: right;" src="https://img.icons8.com/3d-fluency/94/null/help.png" width="60" height="60"/><h1> &nbsp; FAQ<h1></summary>
 
 &nbsp;
-**Help me, I am having 
+**Help me, I am having problems with the MagiskOnWSA Builds**
+
+- Open an [issue in Github](https://github.com/MustardChef/WSABuilds/issues) or [join the Discord](https://github.com/MustardChef/WSABuilds#join-
