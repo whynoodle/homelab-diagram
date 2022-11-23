@@ -276,4 +276,8 @@
 **How do I get a logcat?**
 - There are two ways:
    ```
-   adb
+   adb logcat
+   ```
+   or
+
+-  Location in Windows ---> <br/> `%LOCALAPPDATA%\Packages\MicrosoftCorporationII.WindowsSubsystemForAndroid_8wekyb3d8bbwe\LocalState\diagnostics\l
