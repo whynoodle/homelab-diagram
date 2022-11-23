@@ -280,4 +280,12 @@
    ```
    or
 
--  Location in Windows ---> <br/> `%LOCALAPPDATA%\Packages\MicrosoftCorporationII.WindowsSubsystemForAndroid_8wekyb3d8bbwe\LocalState\diagnostics\l
+-  Location in Windows ---> <br/> `%LOCALAPPDATA%\Packages\MicrosoftCorporationII.WindowsSubsystemForAndroid_8wekyb3d8bbwe\LocalState\diagnostics\logcat`
+
+**Can I delete the installed folder?**
+
+- No.
+
+**How can I update Windows Subsystem For Android™ to a new version?**
+
+- As Explained [Installation instruction
