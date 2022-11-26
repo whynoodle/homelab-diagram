@@ -288,4 +288,8 @@
 
 **How can I update Windows Subsystem For Android™ to a new version?**
 
-- As Explained [Installation instructions](#installation). Download the [latest Windows Subsystem For Android™ Version](#downloads) and replace the content of your previous installation and rerun Install
+- As Explained [Installation instructions](#installation). Download the [latest Windows Subsystem For Android™ Version](#downloads) and replace the content of your previous installation and rerun Install.ps1. Don't worry, your data will be preserved
+
+**How do I update Magisk?**
+
+- Do the same as updating Windows Subsystem For Android™.  Wait for a new MagiskOnWSA relea
