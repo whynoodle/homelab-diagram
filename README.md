@@ -296,4 +296,4 @@
 
 **Can I pass SafetyNet/Play Integrity?**
 
-- No
+- No. Virtual machines like Windows Subsystem For Android™ cannot pass these mechanisms on their own due to the lack of signing by Google. Passing requires mo
