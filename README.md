@@ -292,4 +292,8 @@
 
 **How do I update Magisk?**
 
-- Do the same as updating Windows Subsystem For Android™.  Wait for a new MagiskOnWSA relea
+- Do the same as updating Windows Subsystem For Android™.  Wait for a new MagiskOnWSA release that includes the newer Magisk version, then follow the [Installation instructions](#installation) to update
+
+**Can I pass SafetyNet/Play Integrity?**
+
+- No
