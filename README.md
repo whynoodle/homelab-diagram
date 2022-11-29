@@ -300,4 +300,4 @@
 
 **What is virtualization?**
 
-- Vi
+- Virtualization is required to run virtual machines like Windows Subsystem For Android™.  `Run.bat` helps you enable it. After rebooting, re-run `Run.bat` to install Win
