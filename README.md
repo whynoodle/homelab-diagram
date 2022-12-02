@@ -300,4 +300,8 @@
 
 **What is virtualization?**
 
-- Virtualization is required to run virtual machines like Windows Subsystem For Android™.  `Run.bat` helps you enable it. After rebooting, re-run `Run.bat` to install Windows Subsystem For Android™.  If it's still not working, you have to enable virtualization in your BIOS/UEFI. Instructions vary by PC vendor, look for help on
+- Virtualization is required to run virtual machines like Windows Subsystem For Android™.  `Run.bat` helps you enable it. After rebooting, re-run `Run.bat` to install Windows Subsystem For Android™.  If it's still not working, you have to enable virtualization in your BIOS/UEFI. Instructions vary by PC vendor, look for help online
+
+**Can I remount system partition as read-write?**
+
+- No. Windows Subsystem For Android™ is mounted as read-only by Hyper-V. You can, however, modify the system partition by cre
