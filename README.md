@@ -304,4 +304,8 @@
 
 **Can I remount system partition as read-write?**
 
-- No. Windows Subsystem For Android™ is mounted as read-only by Hyper-V. You can, however, modify the system partition by cre
+- No. Windows Subsystem For Android™ is mounted as read-only by Hyper-V. You can, however, modify the system partition by creating a Magisk module, or by directly modifying the system.img file
+
+**I cannot adb connect localhost:58526**
+
+- Make sure developer mode is enabled. If the issue persists, che
