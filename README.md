@@ -308,4 +308,10 @@
 
 **I cannot adb connect localhost:58526**
 
-- Make sure developer mode is enabled. If the issue persists, che
+- Make sure developer mode is enabled. If the issue persists, check the IP address of Windows Subsystem For Android™ on the Settings ---> Developer page and try 
+
+   ```
+   adb connect ip:5555
+   ```
+
+**Magisk online module list is empty?
