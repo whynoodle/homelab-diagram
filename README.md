@@ -320,4 +320,13 @@
   
    **Step 1** 
       
-      adb push module.zip
+      adb push module.zip /data/local/tmp
+
+   **Step 2**  
+
+      adb shell su -c magisk --install-module /data/local/tmp/module.zip
+
+
+**How do I uninstall Magisk?**
+
+- Reque
