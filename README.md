@@ -329,4 +329,4 @@
 
 **How do I uninstall Magisk?**
 
-- Reque
+- Request, using [Issues](https://github.com/MustardChef/WSABuilds/issues), a Windows Subsystem For Android™ version that doesn't include M
