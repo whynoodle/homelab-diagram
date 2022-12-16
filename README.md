@@ -314,4 +314,10 @@
    adb connect ip:5555
    ```
 
-**Magisk online module list is empty?
+**Magisk online module list is empty?**
+
+- Magisk actively removes the online module repository. You can install the module locally or by 
+  
+   **Step 1** 
+      
+      adb push module.zip
