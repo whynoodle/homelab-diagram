@@ -331,4 +331,8 @@
 
 - Request, using [Issues](https://github.com/MustardChef/WSABuilds/issues), a Windows Subsystem For Android™ version that doesn't include Magisk from the [Releases page](https://github.com/MustardChef/WSABuilds/releases/latest). Then follow the [Installation instructions](#installation)
 
-**Can I switch between OpenGAp
+**Can I switch between OpenGApps and MindTheGapps?**
+
+- No. GApps will no longer function. Do a [complete uninstallation](#uninstallation) before switching
+
+**How do I install custom Magisk or 
