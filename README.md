@@ -335,4 +335,6 @@
 
 - No. GApps will no longer function. Do a [complete uninstallation](#uninstallation) before switching
 
-**How do I install custom Magisk or 
+**How do I install custom Magisk or GApps?**
+
+- To request a build with custom Magisk or GApps, feel free to open an issue in the [Issues page](https://github.com/MustardChef/WSABuilds/issues.) You can also
