@@ -342,4 +342,5 @@
 
 &nbsp;
 
-<details> 
+<details>     
+   <summary><img style="float: right;" src="https://img.icons8.com/external-xnimrodx-lineal-color-xnimrodx/96/null/external-guide-education-xnimrodx-lineal
