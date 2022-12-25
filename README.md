@@ -343,4 +343,9 @@
 &nbsp;
 
 <details>     
-   <summary><img style="float: right;" src="https://img.icons8.com/external-xnimrodx-lineal-color-xnimrodx/96/null/external-guide-education-xnimrodx-lineal
+   <summary><img style="float: right;" src="https://img.icons8.com/external-xnimrodx-lineal-color-xnimrodx/96/null/external-guide-education-xnimrodx-lineal-color-xnimrodx.png" width="60" height="60"/><h1> &nbsp; Usage Guides<h1></summary>
+
+&nbsp;
+
+### GPU Guide:
+[<img src="https://img.shields.io/badge/-How%20t
