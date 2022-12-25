@@ -348,4 +348,4 @@
 &nbsp;
 
 ### GPU Guide:
-[<img src="https://img.shields.io/badge/-How%20t
+[<img src="https://img.shields.io/badge/-How%20to%20Change%20the%20GPU%20Used-474154?style=for-the-badge&logoColor=white&logo=github" />](https://github.com/MustardChef/WSABuilds/blob/master/Guides/ChangingGPU.
