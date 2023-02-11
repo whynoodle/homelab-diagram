@@ -390,4 +390,8 @@
 </details>  
 
 <!--
-1. Fo
+1. Fork this repository
+2. **A)** Magisk
+   1. **a)** Via local file:
+      1. Create a folder named `download` in the root
+      2. Move your custom Magisk APK/ZIP file to the `downloa
