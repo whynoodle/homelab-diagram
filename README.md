@@ -398,4 +398,7 @@
    2. In GitHub Actions, click on `Build MagiskOnWSA`
    3. Choose `Custom` in the `Magisk Version` field
    4. **b)** Via URL:
-      1. I
+      1. Input the URL pointing to your custom Magisk APK/ZIP file in the `Custom Magisk APK/ZIP URL` field
+3. **B)** GApps
+   1. **a)** Via local file:
+      1. Create a fold
