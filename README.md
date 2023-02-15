@@ -401,4 +401,5 @@
       1. Input the URL pointing to your custom Magisk APK/ZIP file in the `Custom Magisk APK/ZIP URL` field
 3. **B)** GApps
    1. **a)** Via local file:
-      1. Create a fold
+      1. Create a folder named `download` in the root
+      2. Move your custom OpenGApps or MindTheGapps ZIP file to the `download` folder and rename it to `OpenGApps-{arch}-{variant}.zip` or `MindTheGapps-{arch}.zip` *
