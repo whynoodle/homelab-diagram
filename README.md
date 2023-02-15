@@ -394,4 +394,8 @@
 2. **A)** Magisk
    1. **a)** Via local file:
       1. Create a folder named `download` in the root
-      2. Move your custom Magisk APK/ZIP file to the `downloa
+      2. Move your custom Magisk APK/ZIP file to the `download` folder and rename it to `magisk-debug.zip`
+   2. In GitHub Actions, click on `Build MagiskOnWSA`
+   3. Choose `Custom` in the `Magisk Version` field
+   4. **b)** Via URL:
+      1. I
