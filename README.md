@@ -412,4 +412,6 @@
 &nbsp;      
       
 <details>     
-   <summary><img style="float: right;" src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/null/external-credits-movie-theate
+   <summary><img style="float: right;" src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/null/external-credits-movie-theater-flaticons-lineal-color-flat-icons.png" width="60" height="60"/><h1> &nbsp; Credits<h1></summary>
+
+- [Microsoft](https://apps.microsoft.com/store/detail/windows-subsyst
