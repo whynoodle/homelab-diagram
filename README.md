@@ -418,4 +418,6 @@
 - [YT-Advanced](https://github.com/YT-Advanced/WSA-Script): For providing and continuing the development of the script made by LSPosed, the Github Action workflow guide is based on his Github Repo. I do not claim his work and the work of the many contributers as my own and nor intend to do so. 
 - [Cinit and the WSAPatch Guide](https://github.com/cinit/WSAPatch): Many thanks for the comprehensive guide, files and support provided by Cinit and the contributers at the WSAPatch repository. Windows™ 10 Builds in this repo rely on the hard work of this project and  hence credit is given where due
 - [StoreLib](https://github.com/StoreDev/StoreLib): API for downloading WSA
-- [Magisk](https://github.com/topjohnwu/Magisk): The Magic Mask for And
+- [Magisk](https://github.com/topjohnwu/Magisk): The Magic Mask for Android
+- [The Open Google Apps Project](https://opengapps.org): Script the automatic generation of up-to-date Google Apps packages
+- [WSA-Kernel-SU](https://github.com/LSP
