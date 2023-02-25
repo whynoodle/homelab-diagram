@@ -420,4 +420,5 @@
 - [StoreLib](https://github.com/StoreDev/StoreLib): API for downloading WSA
 - [Magisk](https://github.com/topjohnwu/Magisk): The Magic Mask for Android
 - [The Open Google Apps Project](https://opengapps.org): Script the automatic generation of up-to-date Google Apps packages
-- [WSA-Kernel-SU](https://github.com/LSP
+- [WSA-Kernel-SU](https://github.com/LSPosed/WSA-Kernel-SU): A kernel module to provide /system/xbin/su to Android Kernel
+- [Kernel Assisted Superuser](https://git.zx2c4.com/kernel-assisted-superus
