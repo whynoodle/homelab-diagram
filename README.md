@@ -421,4 +421,6 @@
 - [Magisk](https://github.com/topjohnwu/Magisk): The Magic Mask for Android
 - [The Open Google Apps Project](https://opengapps.org): Script the automatic generation of up-to-date Google Apps packages
 - [WSA-Kernel-SU](https://github.com/LSPosed/WSA-Kernel-SU): A kernel module to provide /system/xbin/su to Android Kernel
-- [Kernel Assisted Superuser](https://git.zx2c4.com/kernel-assisted-superus
+- [Kernel Assisted Superuser](https://git.zx2c4.com/kernel-assisted-superuser): Kernel assisted means of gaining a root shell for Android
+- [WSAGAScript](https://github.com/ADeltaX/WSAGAScript): The first GApps integration script for WSA
+- [MagiskOnWSA](https://
