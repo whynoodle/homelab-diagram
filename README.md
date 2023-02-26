@@ -424,4 +424,10 @@
 - [Kernel Assisted Superuser](https://git.zx2c4.com/kernel-assisted-superuser): Kernel assisted means of gaining a root shell for Android
 - [WSAGAScript](https://github.com/ADeltaX/WSAGAScript): The first GApps integration script for WSA
 - [MagiskOnWSA](https://github.com/LSPosed/MagiskOnWSA): `Deprecated` Integrate Magisk root and Google Apps into WSA
-- [MagiskOnWSALocal](https://github.com/LSPosed/MagiskOnWSALocal): Integrate Ma
+- [MagiskOnWSALocal](https://github.com/LSPosed/MagiskOnWSALocal): Integrate Magisk root and Google Apps into WSA
+
+***The repository is provided as a utility.***
+
+***Android is a trademark of Google LLC. Windows™ is a trademark of Microsoft LLC.***
+
+</
