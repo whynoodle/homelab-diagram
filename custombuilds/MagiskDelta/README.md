@@ -133,3 +133,172 @@
 &nbsp;
 
 <details>     
+   <summary><img style="float: right;" src="https://img.icons8.com/color/96/null/uninstall-programs.png" width="60" height="60"/><h1> &nbsp; Uninstallation<h1></summary>
+
+&nbsp;
+
+### New CLI and GUI Uninstall Tool Coming Soon! Join the Discord for announcements and updates.
+
+> Note: If you want to preseve your data, make a backup of the `%LOCALAPPDATA%\Packages\MicrosoftCorporationII.WindowsSubsystemForAndroid_8wekyb3d8bbwe\LocalCache\userdata.vhdx` file. After uninstalling, copy the VHDX file back to the `%LOCALAPPDATA%\Packages\MicrosoftCorporationII.WindowsSubsystemForAndroid_8wekyb3d8bbwe\LocalCache` folder.
+
+1. Go to the Start Menu
+2. Type `Windows Subsystem for Android`
+3. Once the Windows Subsystem For Android™ app shows, click `App settings` in the right pane
+4. In the Settings window that opens, scroll down and click `Terminate`
+5. Click `Repair`
+6. Click `Reset`
+7. Close the Settings app
+8. Go to the Start Menu
+9. Type `Windows Subsystem for Android`
+10. Once the Windows Subsystem For Android™ app shows, click `Uninstall` in the right pane
+</details>
+
+&nbsp;
+
+<details>     
+   <summary><img style="float: right;" src="https://img.icons8.com/3d-fluency/94/null/help.png" width="60" height="60"/><h1> &nbsp; FAQ<h1></summary>
+
+&nbsp;
+**Help me, I am having problems with the MagiskOnWSA Builds**
+
+- Open an [issue in Github](https://github.com/MustardChef/WSABuilds/issues) or [join the Discord](https://github.com/MustardChef/WSABuilds#join-the-discord) and describe the issue with sufficent detail
+
+**Help me, I am having problems with installing Windows Subsystem For Android™ on Windows™ 10**
+
+- I am not working on the patch, and nor claim to.  Open an issue in the Discord or Github, and I will try to assist you with the problem if possible. For full support visit the project homepage and open an issue there: https://github.com/cinit/WSAPatch/issues/
+
+**How do I get a logcat?**
+- There are two ways:
+   ```
+   adb logcat
+   ```
+   or
+
+-  Location in Windows ---> <br/> `%LOCALAPPDATA%\Packages\MicrosoftCorporationII.WindowsSubsystemForAndroid_8wekyb3d8bbwe\LocalState\diagnostics\logcat`
+
+**Can I delete the installed folder?**
+
+- No.
+
+**How can I update Windows Subsystem For Android™ to a new version?**
+
+- As Explained [Installation instructions](#installation). Download the [latest Windows Subsystem For Android™ Version](#downloads) and replace the content of your previous installation and rerun Install.ps1. Don't worry, your data will be preserved
+
+**How do I update Magisk?**
+
+- Do the same as updating Windows Subsystem For Android™.  Wait for a new MagiskOnWSA release that includes the newer Magisk version, then follow the [Installation instructions](#installation) to update
+
+**Can I pass SafetyNet/Play Integrity?**
+
+- No. Virtual machines like Windows Subsystem For Android™ cannot pass these mechanisms on their own due to the lack of signing by Google. Passing requires more exotic (and untested) solutions like: <https://github.com/kdrag0n/safetynet-fix/discussions/145#discussioncomment-2170917>
+
+**What is virtualization?**
+
+- Virtualization is required to run virtual machines like Windows Subsystem For Android™.  `Run.bat` helps you enable it. After rebooting, re-run `Run.bat` to install Windows Subsystem For Android™.  If it's still not working, you have to enable virtualization in your BIOS/UEFI. Instructions vary by PC vendor, look for help online
+
+**Can I remount system partition as read-write?**
+
+- No. Windows Subsystem For Android™ is mounted as read-only by Hyper-V. You can, however, modify the system partition by creating a Magisk module, or by directly modifying the system.img file
+
+**I cannot adb connect localhost:58526**
+
+- Make sure developer mode is enabled. If the issue persists, check the IP address of Windows Subsystem For Android™ on the Settings ---> Developer page and try 
+
+   ```
+   adb connect ip:5555
+   ```
+
+**Magisk online module list is empty?**
+
+- Magisk actively removes the online module repository. You can install the module locally or by 
+  
+   **Step 1** 
+      
+      adb push module.zip /data/local/tmp
+
+   **Step 2**  
+
+      adb shell su -c magisk --install-module /data/local/tmp/module.zip
+
+
+**How do I uninstall Magisk?**
+
+- Request, using [Issues](https://github.com/MustardChef/WSABuilds/issues), a Windows Subsystem For Android™ version that doesn't include Magisk from the [Releases page](https://github.com/MustardChef/WSABuilds/releases/latest). Then follow the [Installation instructions](#installation)
+
+**Can I switch between OpenGApps and MindTheGapps?**
+
+- No. GApps will no longer function. Do a [complete uninstallation](#uninstallation) before switching
+
+**How do I install custom Magisk or GApps?**
+
+- To request a build with custom Magisk or GApps, feel free to open an issue in the [Issues page](https://github.com/MustardChef/WSABuilds/issues.) You can also achieve this by using the [MagiskOnWSALocal](https://github.com/LSPosed/MagiskOnWSALocal) Script and following the provided instructions located in the repo.
+</details>
+
+&nbsp;
+
+<details>     
+   <summary><img style="float: right;" src="https://img.icons8.com/external-xnimrodx-lineal-color-xnimrodx/96/null/external-guide-education-xnimrodx-lineal-color-xnimrodx.png" width="60" height="60"/><h1> &nbsp; Usage Guides<h1></summary>
+
+&nbsp;
+
+### GPU Guide:
+[<img src="https://img.shields.io/badge/-How%20to%20Change%20the%20GPU%20Used-474154?style=for-the-badge&logoColor=white&logo=github" />](https://github.com/MustardChef/WSABuilds/blob/master/Guides/ChangingGPU.md)
+
+</details> 
+
+&nbsp;
+
+<details>     
+   <summary><img style="float: right;" src="https://img.icons8.com/external-soft-fill-juicy-fish/96/null/external-bug-coding-and-development-soft-fill-soft-fill-juicy-fish-2.png" width="60" height="60"/><h1> &nbsp; Having Issues?<h1></summary>
+
+### Common Issues:
+[<img src="https://img.shields.io/badge/-Fix%20Install.ps1%20Issue-%23EF2D5E?style=for-the-badge&logoColor=white&logo=Github" />](https://github.com/MustardChef/WSABuilds/blob/master/Fixes/FixInstallps1.md)
+&nbsp; [<img src="https://img.shields.io/badge/-Fix Virtualization and Virtual Machine Platform Error-%23EF2D5E?style=for-the-badge&logoColor=white&logo=github" />](https://github.com/MustardChef/WSABuilds/blob/master/Fixes/FixVirtError.md)
+
+</details>  
+
+<!--
+1. Fork this repository
+2. **A)** Magisk
+   1. **a)** Via local file:
+      1. Create a folder named `download` in the root
+      2. Move your custom Magisk APK/ZIP file to the `download` folder and rename it to `magisk-debug.zip`
+   2. In GitHub Actions, click on `Build MagiskOnWSA`
+   3. Choose `Custom` in the `Magisk Version` field
+   4. **b)** Via URL:
+      1. Input the URL pointing to your custom Magisk APK/ZIP file in the `Custom Magisk APK/ZIP URL` field
+3. **B)** GApps
+   1. **a)** Via local file:
+      1. Create a folder named `download` in the root
+      2. Move your custom OpenGApps or MindTheGapps ZIP file to the `download` folder and rename it to `OpenGApps-{arch}-{variant}.zip` or `MindTheGapps-{arch}.zip` *(e.g. `OpenGApps-x64-pico.zip` or `MindTheGapps-arm64.zip`)*
+   2. In GitHub Actions, click on `Build MagiskOnWSA`
+   3. Choose `Custom (OpenGApps)` or `Custom (MindTheGapps)` in the `GApps Variant` field
+   4. **b)** Via URL:
+      1. Input the URL pointing to your custom OpenGApps or MindTheGapps ZIP file in the `Custom GApps ZIP URL` field
+-->
+
+&nbsp;      
+      
+<details>     
+   <summary><img style="float: right;" src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/null/external-credits-movie-theater-flaticons-lineal-color-flat-icons.png" width="60" height="60"/><h1> &nbsp; Credits<h1></summary>
+
+- [Microsoft](https://apps.microsoft.com/store/detail/windows-subsystem-for-android%E2%84%A2-with-amazon-appstore/9P3395VX91NR): For providing Windows Subsystem For Android™ and related files. Windows Subsystem For Android™, Windows Subsystem For Android™ Logo, Windows™ 10 and Windows™ 11 Logos are trademarks of Microsoft Corporation. Microsoft Corporation reserves all rights to these trademarks. By downloading and installing Windows Subsystem For Android™, you agree to the [Terms and Conditions](https://support.microsoft.com/en-gb/windows/microsoft-software-license-terms-microsoft-windows-subsystem-for-android-cf8dfb03-ba62-4daa-b7f3-e2cb18f968ad) and [Privacy Policy](https://privacy.microsoft.com/en-gb/privacystatement)
+<!-- 
+- [PeterNjeim](https://github.com/PeterNjeim/MagiskOnWSA): For providing and continuing the development of the script made by LSPosed, this Github Repository and the Github Action workflow is based on his Github Repo. I do not claim his work and the work of the many contributers as my own and nor intend to do so. Most Windows™ 11 Build rely on the Github Action provided to build, hence credit is given where due
+-->
+- [Cinit and the WSAPatch Guide](https://github.com/cinit/WSAPatch): Many thanks for the comprehensive guide, files and support provided by Cinit and the contributers at the WSAPatch repository. Windows™ 10 Builds in this repo rely on the hard work of this project and  hence credit is given where due
+- [StoreLib](https://github.com/StoreDev/StoreLib): API for downloading WSA
+- [Magisk](https://github.com/topjohnwu/Magisk): The Magic Mask for Android
+- [Magisk Delta](https://github.com/HuskyDG/magisk-files/): The Magic Mask for Android - Custom Magisk fork by HuskyDG. Sync with official Magisk adding back MagiskHide.
+- [The Open Google Apps Project](https://opengapps.org): Script the automatic generation of up-to-date Google Apps packages
+- [WSA-Kernel-SU](https://github.com/LSPosed/WSA-Kernel-SU): A kernel module to provide /system/xbin/su to Android Kernel
+- [Kernel Assisted Superuser](https://git.zx2c4.com/kernel-assisted-superuser): Kernel assisted means of gaining a root shell for Android
+- [WSAGAScript](https://github.com/ADeltaX/WSAGAScript): The first GApps integration script for WSA
+- [MagiskOnWSA](https://github.com/LSPosed/MagiskOnWSA): `Deprecated` Integrate Magisk root and Google Apps into WSA
+- [MagiskOnWSALocal](https://github.com/LSPosed/MagiskOnWSALocal): Integrate Magisk root and Google Apps into WSA
+
+***The repository is provided as a utility.***
+
+***Android is a trademark of Google LLC. Windows™ is a trademark of Microsoft LLC.***
+
+</details> 
